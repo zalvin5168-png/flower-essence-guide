@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>澳洲花晶｜新手入門指南</title>
+  <title>澳洲花晶｜新手入門與共振體驗指南</title>
   <!-- Google Fonts: Noto Serif TC & Noto Sans TC -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,9 +32,9 @@
               900: '#29221C',
             },
             gold: {
-              400: '#D4B06A',
-              500: '#C29B54',
-              600: '#A67F3C',
+              400: '#D8B47C',
+              500: '#C89F65',
+              600: '#A88047',
             },
             sage: {
               100: '#EBF0EC',
@@ -65,6 +65,10 @@
       transform: scale(1.3);
       filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.25));
     }
+    /* 呼吸圓環平滑過渡 */
+    #breath-circle {
+      transition: transform 3s ease-in-out, background-color 1s ease;
+    }
     /* 自訂捲軸美化 */
     ::-webkit-scrollbar {
       width: 6px;
@@ -78,55 +82,57 @@
       border-radius: 9999px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #C29B54;
+      background: #C89F65;
     }
   </style>
 </head>
 <body class="antialiased selection:bg-gold-400/30 selection:text-earth-900">
 
   <!-- 頂部導覽列 -->
-  <header class="sticky top-0 z-40 bg-cream-50/90 backdrop-blur-md border-b border-cream-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="#top" class="flex items-center gap-2.5 group">
+  <header class="sticky top-0 z-40 bg-cream-50/95 backdrop-blur-md border-b border-cream-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-2">
+      <a href="#top" class="flex items-center gap-2.5 group shrink-0">
         <span class="w-8 h-8 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 text-white flex items-center justify-center font-serif font-bold text-sm shadow-sm group-hover:scale-105 transition">
           花
         </span>
         <div>
           <span class="font-serif font-bold text-earth-900 text-base sm:text-lg tracking-wide">澳洲花晶</span>
-          <span class="hidden sm:inline-block text-xs text-earth-600 ml-2 pl-2 border-l border-cream-300">新手入門互動指南</span>
+          <span class="hidden md:inline-block text-xs text-earth-600 ml-2 pl-2 border-l border-cream-300">新手入門與共振體驗指南</span>
         </div>
       </a>
 
       <nav class="flex items-center gap-1 sm:gap-2 overflow-x-auto py-1">
-        <a href="#sec-intro" class="px-2.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-earth-700 hover:bg-cream-100 hover:text-earth-900 whitespace-nowrap transition">1. 核心概念</a>
-        <a href="#sec-chakras" class="px-2.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-earth-700 hover:bg-cream-100 hover:text-earth-900 whitespace-nowrap transition">2. 七大脈輪</a>
-        <a href="#sec-scenarios" class="px-2.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-earth-700 hover:bg-cream-100 hover:text-earth-900 whitespace-nowrap transition">3. 情境速查</a>
-        <a href="#sec-products" class="px-2.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-earth-700 hover:bg-cream-100 hover:text-earth-900 whitespace-nowrap transition">4. 產品圖鑑</a>
-        <a href="#sec-usage" class="px-2.5 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-earth-800 text-cream-50 hover:bg-earth-900 whitespace-nowrap transition shadow-sm">5. 使用手冊</a>
+        <a href="#concept" class="px-2.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-earth-700 hover:bg-cream-100 hover:text-earth-900 whitespace-nowrap transition">1. 看懂共振</a>
+        <a href="#chakras" class="px-2.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-earth-700 hover:bg-cream-100 hover:text-earth-900 whitespace-nowrap transition">2. 身體脈輪地圖</a>
+        <a href="#scenarios" class="px-2.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-earth-700 hover:bg-cream-100 hover:text-earth-900 whitespace-nowrap transition">3. 生活對號入座</a>
+        <a href="#products" class="px-2.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-earth-700 hover:bg-cream-100 hover:text-earth-900 whitespace-nowrap transition">4. 產品圖鑑</a>
+        <a href="#experience" class="px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-earth-800 text-cream-50 hover:bg-earth-900 whitespace-nowrap transition shadow-sm">5. 3分鐘體驗儀</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero 歡迎區 -->
-  <section id="top" class="relative overflow-hidden border-b border-cream-200 bg-gradient-to-b from-cream-100/70 to-cream-50 pt-10 pb-12 sm:pt-16 sm:pb-20">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-cream-200 text-xs font-medium text-gold-600 shadow-sm mb-5">
+  <!-- 英雄區（Hero Section） -->
+  <section id="top" class="relative overflow-hidden border-b border-cream-200 bg-gradient-to-b from-cream-100/80 to-cream-50 pt-12 pb-14 sm:pt-18 sm:pb-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div class="inline-flex flex-wrap justify-center items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-cream-200 text-xs font-medium text-gold-600 shadow-sm mb-6">
         <span>🌿 花朵植萃精微能量</span>
         <span class="text-cream-300">×</span>
-        <span>💎 水晶寶石渾厚能量</span>
+        <span>💎 水晶晶礦渾厚頻率</span>
+        <span class="text-cream-300">×</span>
+        <span>🧘 神經系統物理安頓</span>
       </div>
-      <h1 class="font-serif text-3xl sm:text-5xl font-bold text-earth-900 leading-tight tracking-tight mb-4">
-        從身體走入心靈的<br class="sm:hidden" />溫柔覺察地圖
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold text-earth-900 leading-tight tracking-tight mb-5">
+        澳洲花晶｜從身體開始的溫柔共振
       </h1>
-      <p class="max-w-2xl mx-auto text-earth-600 text-sm sm:text-lg leading-relaxed mb-8">
-        不需要背誦艱深的脈輪理論，透過<strong>「視覺色彩、無形嗅覺、高頻能量交換」</strong>三道療癒，輕鬆看懂身體發出的情緒訊號，找到此刻最支持你的那一瓶澳洲花晶。
+      <p class="max-w-2xl mx-auto text-earth-600 text-sm sm:text-lg leading-relaxed mb-9">
+        不需要艱深的靈性理論，也不必強迫自己「想開」。當理智跑不贏壓力時，讓植物與晶礦的自然頻率，陪身體找回安穩的節奏。
       </p>
       <div class="flex flex-wrap justify-center gap-3">
-        <a href="#sec-chakras" class="px-6 py-3 rounded-2xl bg-earth-800 text-cream-50 font-medium text-sm sm:text-base hover:bg-earth-900 transition shadow-sm">
-          探索七大脈輪地圖
+        <a href="#concept" class="px-6 py-3 rounded-2xl bg-earth-800 text-cream-50 font-medium text-sm sm:text-base hover:bg-earth-900 transition shadow-sm">
+          3 分鐘看懂花晶與共振
         </a>
-        <a href="#sec-scenarios" class="px-6 py-3 rounded-2xl bg-white text-earth-800 border border-cream-300 font-medium text-sm sm:text-base hover:bg-cream-100 transition">
-          直接從日常困擾選瓶
+        <a href="#experience" class="px-6 py-3 rounded-2xl bg-white text-earth-800 border border-cream-300 font-medium text-sm sm:text-base hover:bg-cream-100 transition">
+          立即體驗 3 分鐘頻率校準
         </a>
       </div>
     </div>
@@ -134,100 +140,226 @@
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-20 sm:space-y-28">
 
-    <!-- ========================================== -->
-    <!-- 模組 1：3 分鐘認識澳洲花晶（入門核心概念） -->
-    <!-- ========================================== -->
-    <section id="sec-intro" class="scroll-mt-24">
-      <div class="text-center max-w-2xl mx-auto mb-10">
-        <span class="text-xs font-bold tracking-widest uppercase text-gold-600">STEP 01 · CORE CONCEPTS</span>
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-earth-900 mt-1 mb-3">3 分鐘認識澳洲花晶</h2>
-        <p class="text-earth-600 text-sm sm:text-base">不同於一般只作用於肌肉放鬆的芳香精油，澳洲花晶是一套結合雙重自然頻率的「身心能量轉換工具」。</p>
+    <!-- ========================================================== -->
+    <!-- 第一區：3 分鐘看懂花晶與「共振」（#concept）                 -->
+    <!-- ========================================================== -->
+    <section id="concept" class="scroll-mt-24 space-y-10">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="text-xs font-bold tracking-widest uppercase text-gold-600">STEP 01 · UNDERSTAND RESONANCE</span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-earth-900 mt-1 mb-3">3 分鐘看懂花晶與「共振」</h2>
+        <p class="text-earth-600 text-sm sm:text-base">用現代人每天都在經歷的「音叉與 Wi-Fi 分享器」來理解，原來花晶一點也不神祕。</p>
       </div>
 
-      <!-- 雙能量原理卡片 -->
-      <div class="grid md:grid-cols-2 gap-6 mb-10">
-        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-cream-200 shadow-sm flex gap-4 items-start">
-          <div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-700 flex items-center justify-center text-2xl shrink-0">
-            🌸
-          </div>
-          <div>
-            <div class="text-xs font-bold text-sage-700 mb-1">精微能量 · 穿透情緒與思維</div>
-            <h3 class="font-serif text-lg sm:text-xl font-bold text-earth-900 mb-2">罕見植物與稀珍花朵萃取</h3>
-            <p class="text-earth-600 text-sm leading-relaxed">
-              擷取大自然花朵的細緻振動波，能溫和穿透無形無相的情緒體與心智慣性，協助鬆動長期緊抓不放的心理壓力、委屈與自我設限。
-            </p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-cream-200 shadow-sm flex gap-4 items-start">
+      <!-- 破冰開場：硬體 vs. 軟體 -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-cream-200 shadow-sm">
+        <div class="flex flex-col md:flex-row gap-6 items-start">
           <div class="w-12 h-12 rounded-2xl bg-cream-100 text-gold-600 flex items-center justify-center text-2xl shrink-0">
-            💎
+            💻
           </div>
-          <div>
-            <div class="text-xs font-bold text-gold-600 mb-1">渾厚能量 · 釋放身體創傷印記</div>
-            <h3 class="font-serif text-lg sm:text-xl font-bold text-earth-900 mb-2">高頻水晶、珍貴寶石與淨化貝殼</h3>
-            <p class="text-earth-600 text-sm leading-relaxed">
-              以液態水分子裝載水晶礦石的渾厚頻率，塗抹於肌膚時能直接滲透肌肉、筋膜與器官，震盪並釋放身體細胞儲存的低頻情緒凍結。
+          <div class="flex-1">
+            <div class="text-xs font-bold text-gold-600 mb-1">破冰觀念 · 為什麼道理都懂，壓力一來還是先失控？</div>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-earth-900 mb-3">
+              理智是「軟體」，身體與神經系統才是「硬體」
+            </h3>
+            <p class="text-earth-700 text-sm sm:text-base leading-relaxed mb-4">
+              我們常對自己說「明天不要再發脾氣、不要再焦慮」，但一遇到家人碎唸或工作突發狀況，身體還是瞬間緊繃、情緒還是直接斷線。這不是你修養不夠，而是當壓力過載時，身體這台<strong>「硬體（神經系統）」</strong>為了保命，會先切斷理智<strong>「軟體（大腦思考）」</strong>的電源。
             </p>
+            <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+              <div class="bg-cream-50 rounded-2xl p-4 border border-cream-200/80">
+                <span class="font-bold text-earth-900 block mb-1">🌸 植物植萃精微能量（穿透情緒）</span>
+                <span class="text-earth-600">溫和安撫過度緊繃的神經與思緒，鬆動無形的心理壓力。</span>
+              </div>
+              <div class="bg-cream-50 rounded-2xl p-4 border border-cream-200/80">
+                <span class="font-bold text-earth-900 block mb-1">💎 水晶晶礦渾厚頻率（安頓硬體）</span>
+                <span class="text-earth-600">透過液態水分子滲透肌膚，直接與身體肌肉、筋膜的緊繃印記對話。</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 互動切換：三道療癒機制 -->
-      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-cream-200 shadow-sm mb-8">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+      <!-- 共振三部曲（音叉與 Wi-Fi 分享器白話比喻） -->
+      <div class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
           <div>
-            <h3 class="font-serif text-xl font-bold text-earth-900">獨特的「三道療癒」機制</h3>
-            <p class="text-xs sm:text-sm text-earth-600 mt-0.5">點擊下方三個步驟，了解花晶如何從身、心、靈同步共振：</p>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-earth-900">看懂「共振三部曲」：從自己到關係的連鎖效應</h3>
+            <p class="text-xs sm:text-sm text-earth-600 mt-0.5">共振不是玄學，而是物理世界與人際神經系統每天都在發生的自然現象：</p>
           </div>
-          <span class="inline-flex items-center px-3 py-1 rounded-full bg-cream-100 text-earth-700 text-xs font-medium self-start">
-            身 → 心 → 身心合一
-          </span>
         </div>
 
-        <div class="grid sm:grid-cols-3 gap-3 mb-6" id="healing-tabs">
-          <!-- JS 動態產生按鈕 -->
-        </div>
+        <div class="grid lg:grid-cols-3 gap-6">
+          <!-- 第一圈：物與身體 -->
+          <div class="bg-white rounded-3xl p-6 border border-cream-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-gold-500/15 text-gold-600 text-xs font-bold">第一圈 · 物與身體的共振</span>
+                <span class="text-2xl">🔔</span>
+              </div>
+              <h4 class="font-serif text-lg font-bold text-earth-900 mb-2">高頻音叉校準：花晶 → 你的身體</h4>
+              <p class="text-xs sm:text-sm text-earth-600 leading-relaxed mb-4">
+                就像拿一支穩定發聲的<strong>「高頻音叉」</strong>，靠近另一支卡住走音的音叉，原本卡住的音叉會開始震動、把雜質震掉並校準回正常音高。花晶透過<strong>視覺、嗅覺、皮膚接觸</strong>三道機制，幫緊繃的身體找回平穩頻率。
+              </p>
+            </div>
+            <!-- 互動切換三道機制 -->
+            <div class="bg-cream-50 rounded-2xl p-4 border border-cream-200/80">
+              <div class="text-[11px] font-bold text-earth-600 mb-2">點擊切換「三道療癒機制」：</div>
+              <div class="grid grid-cols-3 gap-1.5 mb-2.5" id="healing-tabs"></div>
+              <div id="healing-detail" class="text-xs text-earth-700 leading-relaxed min-h-[68px]"></div>
+            </div>
+          </div>
 
-        <div id="healing-detail" class="bg-cream-50 rounded-2xl p-5 sm:p-6 border border-cream-200/80 transition-all">
-          <!-- JS 動態產生內容 -->
+          <!-- 第二圈：人與人的共振 -->
+          <div class="bg-white rounded-3xl p-6 border border-cream-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-sage-100 text-sage-700 text-xs font-bold">第二圈 · 人與人的共振</span>
+                <span class="text-2xl">📶</span>
+              </div>
+              <h4 class="font-serif text-lg font-bold text-earth-900 mb-2">社交 Wi-Fi 分享器：你 → 伴侶與孩子</h4>
+              <p class="text-xs sm:text-sm text-earth-600 leading-relaxed mb-4">
+                每個人的神經系統都是一台<strong>「開放式 Wi-Fi 分享器」</strong>（神經科學稱為「共同調節 Co-regulation」）。兩個人靠近時，呼吸、心跳與緊繃度會自動連線對頻。
+              </p>
+            </div>
+            <div class="bg-sage-100/60 rounded-2xl p-4 border border-sage-500/20 space-y-2 text-xs text-earth-700">
+              <div class="font-bold text-sage-700">💡 為什麼我擦花晶，家人也變溫和了？</div>
+              <p class="leading-relaxed">
+                當你滿身焦慮火氣時，孩子會跟著哭鬧、伴侶會啟動防禦冷戰；相反地，當你先擦花晶、做三次長吐氣把自己穩住，對方因為抓不到吵架的對手，神經系統也會跟著降溫對頻。
+              </p>
+            </div>
+          </div>
+
+          <!-- 第三圈：內在與外境 -->
+          <div class="bg-white rounded-3xl p-6 border border-cream-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-cream-100 text-earth-800 text-xs font-bold">第三圈 · 內在與外境的共振</span>
+                <span class="text-2xl">🪞</span>
+              </div>
+              <h4 class="font-serif text-lg font-bold text-earth-900 mb-2">頻率放大器：穩定頻率 → 關係與機會</h4>
+              <p class="text-xs sm:text-sm text-earth-600 leading-relaxed mb-4">
+                外在世界是一面<strong>「頻率放大器」</strong>。當我們一直用「討好、硬撐或發脾氣」換取安全感時，身體都在高度內耗漏電，也容易吸引來消耗我們的人事物。
+              </p>
+            </div>
+            <div class="bg-cream-50 rounded-2xl p-4 border border-cream-200/80 space-y-2 text-xs text-earth-700">
+              <div class="font-bold text-earth-900">✨ 內在歸位後的自然流動</div>
+              <p class="leading-relaxed">
+                當身體的緊繃與匱乏印記逐漸鬆開，你不再需要刻意討好或防備，身上散發出的從容與清晰界線感，會自然吸引尊重你的人與適合的工作資源靠近。
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- 新手選瓶黃金法則提示框 -->
-      <div class="rounded-3xl bg-gradient-to-r from-earth-800 to-earth-900 text-cream-50 p-6 sm:p-8 shadow-md relative overflow-hidden">
-        <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6">
-          <div class="w-14 h-14 rounded-2xl bg-gold-500/20 border border-gold-400/40 flex items-center justify-center text-3xl shrink-0">
+      <!-- 選瓶黃金法則提示框 -->
+      <div class="rounded-3xl bg-gradient-to-r from-earth-800 to-earth-900 text-cream-50 p-6 sm:p-8 shadow-md">
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-gold-500/20 border border-gold-400/40 flex items-center justify-center text-2xl shrink-0">
             🧭
           </div>
           <div class="flex-1">
-            <div class="inline-block px-3 py-0.5 rounded-full bg-gold-500/20 text-gold-400 text-xs font-bold tracking-wider mb-2">
+            <div class="inline-block px-2.5 py-0.5 rounded-full bg-gold-500/20 text-gold-400 text-xs font-bold tracking-wider mb-1.5">
               新手選瓶黃金法則
             </div>
-            <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
-              「越排斥、越沒感覺，反而代表你越需要它！」
+            <h3 class="font-serif text-lg sm:text-xl font-bold text-white mb-1.5">
+              「越排斥的顏色或氣味，往往越需要！」
             </h3>
-            <p class="text-cream-200 text-sm sm:text-base leading-relaxed">
-              挑選澳洲花晶時，請不要只靠頭腦看文字功能表。如果你看到某瓶花晶的顏色覺得<span class="text-gold-400 font-medium">「好俗氣、不想看」</span>，或聞起來覺得<span class="text-gold-400 font-medium">「很臭、刺鼻、甚至完全聞不到香味（只聞到白蘭地酒味）」</span>，這正是潛意識的自我保護機制啟動了！排斥感越強，代表這支花晶正巧碰觸到你內在最深層的卡關點，<strong>刻意加強使用它</strong>往往能帶來最明顯的突破。
+            <p class="text-cream-200 text-xs sm:text-sm leading-relaxed">
+              選花晶時不要只靠頭腦看文字介紹。如果你看到某瓶花晶的顏色覺得<span class="text-gold-400 font-medium">「好俗氣、不想看」</span>，或聞起來覺得<span class="text-gold-400 font-medium">「很臭、刺鼻、甚至完全聞不到香味」</span>，這正是潛意識的自我保護機制啟動了——代表這支花晶的頻率正巧碰觸到你內在最深層的卡關點，<strong>刻意加強使用它</strong>往往最能帶來突破。
             </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 給新手的安心定心丸：每個人的體感都不同（3 種常見共振光譜） -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-cream-200 shadow-sm">
+        <div class="mb-6">
+          <span class="text-xs font-bold text-sage-700 bg-sage-100 px-3 py-1 rounded-full">給新手的安心定心丸</span>
+          <h3 class="font-serif text-xl sm:text-2xl font-bold text-earth-900 mt-2 mb-1.5">
+            每個人的體感都不同：3 種常見的共振光譜
+          </h3>
+          <p class="text-xs sm:text-sm text-earth-600">
+            花晶的體驗沒有標準答案，也不是每個人都會覺得「好舒服」。無論你出現哪一種反應，都是身體正常的自我調節：
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 mb-6">
+          <!-- 類型 A -->
+          <div class="rounded-2xl p-5 bg-sage-100/50 border border-sage-500/20">
+            <div class="flex items-center gap-2 font-bold text-sage-700 text-sm mb-2">
+              <span class="text-lg">🌊</span> 類型 A｜溫和釋放型
+            </div>
+            <p class="text-xs text-earth-800 font-medium mb-2">
+              體感表現：覺得緊繃的肌肉與筋膜慢慢鬆開、像泡在溫水裡一樣安心，或在脈輪處感到微溫、酥麻、微弱電感。
+            </p>
+            <p class="text-xs text-earth-600 leading-relaxed">
+              <strong>白話翻譯：</strong>身體氣脈正在順暢流動，神經系統從緊繃警戒切換到安心修復狀態。
+            </p>
+          </div>
+
+          <!-- 類型 B -->
+          <div class="rounded-2xl p-5 bg-amber-50/70 border border-amber-200">
+            <div class="flex items-center gap-2 font-bold text-amber-900 text-sm mb-2">
+              <span class="text-lg">🧊</span> 類型 B｜情緒解凍型（破冰反應）
+            </div>
+            <p class="text-xs text-earth-800 font-medium mb-2">
+              體感表現：擦完後突然覺得<strong>心慌、莫名緊張、想哭、煩躁，甚至身體微微發抖</strong>。
+            </p>
+            <p class="text-xs text-earth-600 leading-relaxed">
+              <strong>白話翻譯：</strong>這不是你變糟了，而是<strong>「破冰解凍」</strong>！就像冷凍庫拔掉插頭冰塊融化一樣，過去壓抑在深處的緊張與害怕，現在正透過高頻震盪排出來。
+            </p>
+          </div>
+
+          <!-- 類型 C -->
+          <div class="rounded-2xl p-5 bg-cream-50 border border-cream-200">
+            <div class="flex items-center gap-2 font-bold text-earth-800 text-sm mb-2">
+              <span class="text-lg">🛡️</span> 類型 C｜無感保護型
+            </div>
+            <p class="text-xs text-earth-800 font-medium mb-2">
+              體感表現：擦完覺得像擦一般化妝水或保養品，沒有任何特殊感覺。
+            </p>
+            <p class="text-xs text-earth-600 leading-relaxed">
+              <strong>白話翻譯：</strong>沒有感覺不代表沒有效！高頻能量依然在進行交換，只是你的身體防護罩較厚，多給自己一點時間慢慢建立連結即可。
+            </p>
+          </div>
+        </div>
+
+        <!-- 專屬自救小卡：萬一使用時覺得很害怕、很緊張怎麼辦？ -->
+        <div class="rounded-2xl bg-amber-50/90 border border-amber-300/80 p-5 sm:p-6">
+          <div class="flex items-center gap-2 text-amber-950 font-bold text-sm sm:text-base mb-3">
+            <span class="w-6 h-6 rounded-full bg-amber-600 text-white flex items-center justify-center text-xs">!</span>
+            <span>專屬自救小卡：萬一使用時覺得「很害怕、很緊張」怎麼辦？</span>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-3 text-xs sm:text-sm text-earth-800">
+            <div class="bg-white/90 rounded-xl p-3.5 border border-amber-200/70">
+              <div class="font-bold text-amber-900 mb-1">1. 先停下來、雙腳踩穩地板</div>
+              <p class="text-xs text-earth-600 leading-relaxed">放下手邊的事，感覺腳掌貼地的重量，告訴自己：「這只是身體在排掉舊的緊張，我現在很安全。」</p>
+            </div>
+            <div class="bg-white/90 rounded-xl p-3.5 border border-amber-200/70">
+              <div class="font-bold text-amber-900 mb-1">2. 改用「接地與安撫」配方</div>
+              <p class="text-xs text-earth-600 leading-relaxed">暫停高頻沖刷的花晶，改用<strong>「1號紅色花晶」擦腳底</strong>幫身體踩煞車，或用<strong>「心靈修護粉色」敷胸口</strong>安撫。</p>
+            </div>
+            <div class="bg-white/90 rounded-xl p-3.5 border border-amber-200/70">
+              <div class="font-bold text-amber-900 mb-1">3. 做 3～5 次「長吐氣」降載</div>
+              <p class="text-xs text-earth-600 leading-relaxed">鼻子吸氣 3 秒、嘴巴像吹蠟燭般<strong>慢慢吹氣 6 秒</strong>（吐氣比吸氣長兩倍），大腦警報器就會慢慢安靜下來。</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========================================== -->
-    <!-- 模組 2：看圖認識七大脈輪（互動式脈輪地圖） -->
-    <!-- ========================================== -->
-    <section id="sec-chakras" class="scroll-mt-24">
+    <!-- ========================================================== -->
+    <!-- 第二區：互動式人體脈輪地圖（#chakras）                        -->
+    <!-- ========================================================== -->
+    <section id="chakras" class="scroll-mt-24">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
         <div>
-          <span class="text-xs font-bold tracking-widest uppercase text-gold-600">STEP 02 · CHAKRA MAP</span>
-          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-earth-900 mt-1 mb-2">看圖認識身體的 7 個能量中心</h2>
-          <p class="text-earth-600 text-sm sm:text-base">點擊左側人體中軸上的脈輪光點，查看對應花晶、失衡情緒模式與身體反映症狀。</p>
+          <span class="text-xs font-bold tracking-widest uppercase text-gold-600">STEP 02 · BODY CHAKRA MAP</span>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-earth-900 mt-1 mb-2">身體脈輪地圖：看圖讀懂身體訊號</h2>
+          <p class="text-earth-600 text-sm sm:text-base">點擊人體中軸上的脈輪光點，查看對應花晶、失衡情緒模式與常見的身體訊號。</p>
         </div>
         <button id="toggle-chakra-view" type="button" onclick="toggleChakraView()" class="self-start md:self-auto px-4 py-2 rounded-xl bg-white border border-cream-300 text-earth-800 text-xs sm:text-sm font-medium hover:bg-cream-100 transition shadow-sm flex items-center gap-2">
           <span id="toggle-view-icon">📋</span>
-          <span id="toggle-view-text">切換為「全部 7 脈輪總覽表」</span>
+          <span id="toggle-view-text">切換全部 7 脈輪總覽表</span>
         </button>
       </div>
 
@@ -246,18 +378,15 @@
 
               <!-- 靜坐冥想人體輪廓剪影 -->
               <g fill="#D5CBBF" opacity="0.72">
-                <!-- 頭部 -->
                 <circle cx="125" cy="64" r="24" />
-                <!-- 頸部與肩膀軀幹 -->
                 <path d="M114 86 L136 86 L142 102 C164 106 174 120 176 144 L184 196 C186 206 198 214 210 218 C216 220 216 228 208 230 L176 226 C168 224 164 214 162 200 L156 154 L152 216 L98 216 L94 154 L88 200 C86 214 82 224 74 226 L42 230 C34 228 34 220 40 218 C52 214 64 206 66 196 L74 144 C76 120 86 106 108 102 Z" />
-                <!-- 盤腿雙膝底座 -->
                 <path d="M88 214 C56 216 28 232 32 252 C36 270 84 274 125 270 C166 274 214 270 218 252 C222 232 194 216 162 214 Z" />
               </g>
 
               <!-- 中軸能量垂直連線 -->
-              <line x1="125" y1="24" x2="125" y2="252" stroke="#C29B54" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6" />
+              <line x1="125" y1="24" x2="125" y2="252" stroke="#C89F65" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6" />
 
-              <!-- 7 頂輪 (頭頂上方一至二寸) -->
+              <!-- 7 頂輪 -->
               <g class="chakra-node" id="node-7" onclick="selectChakra(7)">
                 <line x1="125" y1="24" x2="225" y2="24" stroke="#8E8276" stroke-width="1" />
                 <circle cx="125" cy="24" r="13" fill="#9333EA" opacity="0.22" id="node-ring-7" />
@@ -265,7 +394,7 @@
                 <text x="233" y="29" font-size="13" font-weight="600" fill="#3D342C" id="label-7">⑦ 頂輪</text>
               </g>
 
-              <!-- 6 眉心輪 (兩眉之間) -->
+              <!-- 6 眉心輪 -->
               <g class="chakra-node" id="node-6" onclick="selectChakra(6)">
                 <line x1="125" y1="62" x2="225" y2="62" stroke="#8E8276" stroke-width="1" />
                 <circle cx="125" cy="62" r="13" fill="#4F46E5" opacity="0.22" id="node-ring-6" />
@@ -273,7 +402,7 @@
                 <text x="233" y="67" font-size="13" font-weight="600" fill="#3D342C" id="label-6">⑥ 眉心輪</text>
               </g>
 
-              <!-- 5 喉輪 (喉嚨位置) -->
+              <!-- 5 喉輪 -->
               <g class="chakra-node" id="node-5" onclick="selectChakra(5)">
                 <line x1="125" y1="98" x2="225" y2="98" stroke="#8E8276" stroke-width="1" />
                 <circle cx="125" cy="98" r="13" fill="#3B82F6" opacity="0.22" id="node-ring-5" />
@@ -281,7 +410,7 @@
                 <text x="233" y="103" font-size="13" font-weight="600" fill="#3D342C" id="label-5">⑤ 喉輪</text>
               </g>
 
-              <!-- 4 心輪 (心口位置) -->
+              <!-- 4 心輪 -->
               <g class="chakra-node" id="node-4" onclick="selectChakra(4)">
                 <line x1="125" y1="134" x2="225" y2="134" stroke="#8E8276" stroke-width="1" />
                 <circle cx="125" cy="134" r="13" fill="#22C55E" opacity="0.22" id="node-ring-4" />
@@ -289,7 +418,7 @@
                 <text x="233" y="139" font-size="13" font-weight="600" fill="#3D342C" id="label-4">④ 心輪</text>
               </g>
 
-              <!-- 3 太陽神經叢 (胃部位置) -->
+              <!-- 3 太陽神經叢 -->
               <g class="chakra-node" id="node-3" onclick="selectChakra(3)">
                 <line x1="125" y1="170" x2="225" y2="170" stroke="#8E8276" stroke-width="1" />
                 <circle cx="125" cy="170" r="13" fill="#EAB308" opacity="0.25" id="node-ring-3" />
@@ -297,7 +426,7 @@
                 <text x="233" y="175" font-size="13" font-weight="600" fill="#3D342C" id="label-3">③ 太陽神經叢</text>
               </g>
 
-              <!-- 2 臍輪 (肚臍位置) -->
+              <!-- 2 臍輪 -->
               <g class="chakra-node" id="node-2" onclick="selectChakra(2)">
                 <line x1="125" y1="206" x2="225" y2="206" stroke="#8E8276" stroke-width="1" />
                 <circle cx="125" cy="206" r="13" fill="#F97316" opacity="0.25" id="node-ring-2" />
@@ -305,7 +434,7 @@
                 <text x="233" y="211" font-size="13" font-weight="600" fill="#3D342C" id="label-2">② 臍輪</text>
               </g>
 
-              <!-- 1 海底輪 (脊椎骨最尾端) -->
+              <!-- 1 海底輪 -->
               <g class="chakra-node" id="node-1" onclick="selectChakra(1)">
                 <line x1="125" y1="244" x2="225" y2="244" stroke="#8E8276" stroke-width="1" />
                 <circle cx="125" cy="244" r="13" fill="#EF4444" opacity="0.25" id="node-ring-1" />
@@ -315,17 +444,13 @@
             </svg>
           </div>
 
-          <!-- 手機版快速切換膠囊按鈕列 -->
-          <div class="flex flex-wrap justify-center gap-1.5 mt-4" id="chakra-pills">
-            <!-- JS 動態產生 -->
-          </div>
+          <!-- 1～7 號快速切換膠囊按鈕列 -->
+          <div class="flex flex-wrap justify-center gap-1.5 mt-4" id="chakra-pills"></div>
         </div>
 
         <!-- 右側：選中脈輪的詳細解說卡片 -->
         <div class="lg:col-span-7">
-          <div id="chakra-card" class="rounded-3xl p-6 sm:p-8 border transition-all duration-300 bg-cream-50/70">
-            <!-- JS 動態產生 -->
-          </div>
+          <div id="chakra-card" class="rounded-3xl p-6 sm:p-8 border transition-all duration-300 bg-cream-50/70"></div>
         </div>
       </div>
 
@@ -342,177 +467,211 @@
                 <th class="py-4 px-5 font-bold">常見身體訊號與症狀</th>
               </tr>
             </thead>
-            <tbody id="chakra-table-body" class="divide-y divide-cream-200 text-sm text-earth-700">
-              <!-- JS 動態產生 -->
-            </tbody>
+            <tbody id="chakra-table-body" class="divide-y divide-cream-200 text-sm text-earth-700"></tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <!-- ========================================== -->
-    <!-- 模組 3：我現在需要哪一瓶？（生活情境速查） -->
-    <!-- ========================================== -->
-    <section id="sec-scenarios" class="scroll-mt-24">
+    <!-- ========================================================== -->
+    <!-- 第三區：生活情境對號入座（#scenarios）                        -->
+    <!-- ========================================================== -->
+    <section id="scenarios" class="scroll-mt-24">
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <span class="text-xs font-bold tracking-widest uppercase text-gold-600">STEP 03 · QUICK MATCH</span>
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-earth-900 mt-1 mb-3">我現在需要哪一瓶？</h2>
-        <p class="text-earth-600 text-sm sm:text-base">不需要懂脈輪理論，直接從你<strong>最近的身心卡關狀態</strong>對號入座，找出最適合的入門搭配組合。</p>
+        <span class="text-xs font-bold tracking-widest uppercase text-gold-600">STEP 03 · DAILY SCENARIOS</span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-earth-900 mt-1 mb-3">生活情境對號入座：我現在需要哪一瓶？</h2>
+        <p class="text-earth-600 text-sm sm:text-base">不需要背誦理論，直接從你<strong>最近的日常卡關狀態</strong>對號入座，找出最適合的入門搭配。</p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="scenario-grid">
-        <!-- JS 動態產生 6 大情境卡片 -->
-      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="scenario-grid"></div>
     </section>
 
-    <!-- ========================================== -->
-    <!-- 模組 4：產品家族圖鑑（五大產品線一目了然） -->
-    <!-- ========================================== -->
-    <section id="sec-products" class="scroll-mt-24">
+    <!-- ========================================================== -->
+    <!-- 第四區：產品家族圖鑑（#products）                            -->
+    <!-- ========================================================== -->
+    <section id="products" class="scroll-mt-24">
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <span class="text-xs font-bold tracking-widest uppercase text-gold-600">STEP 04 · PRODUCT FAMILY</span>
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-earth-900 mt-1 mb-3">產品家族圖鑑</h2>
+        <span class="text-xs font-bold tracking-widest uppercase text-gold-600">STEP 04 · PRODUCT CATALOG</span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-earth-900 mt-1 mb-3">產品家族圖鑑（全系列 52 款速查）</h2>
         <p class="text-earth-600 text-sm sm:text-base">點擊任一產品標籤，即可展開該產品的<strong>瓶身色彩插畫、核心療癒作用、成分亮點與搭配用法</strong>。</p>
       </div>
 
       <!-- 分類標籤頁 (Tabs) -->
-      <div class="flex flex-wrap justify-center gap-2 mb-8" id="product-tabs">
-        <!-- JS 動態產生 -->
-      </div>
+      <div class="flex flex-wrap justify-center gap-2 mb-8" id="product-tabs"></div>
 
       <!-- 產品類別詳細展示面板 -->
-      <div id="product-panel" class="bg-white rounded-3xl p-6 sm:p-8 border border-cream-200 shadow-sm">
-        <!-- JS 動態產生 -->
-      </div>
+      <div id="product-panel" class="bg-white rounded-3xl p-6 sm:p-8 border border-cream-200 shadow-sm"></div>
 
       <!-- 產品單品詳情檢視器（點擊任一產品後呈現瓶身插畫與完整說明） -->
-      <div id="product-detail-viewer" class="mt-6 scroll-mt-28">
-        <!-- JS 動態產生 -->
-      </div>
+      <div id="product-detail-viewer" class="mt-6 scroll-mt-28"></div>
     </section>
 
-    <!-- ========================================== -->
-    <!-- 模組 5：新手實用操作手冊（使用方式與禁忌） -->
-    <!-- ========================================== -->
-    <section id="sec-usage" class="scroll-mt-24">
-      <div class="text-center max-w-2xl mx-auto mb-10">
-        <span class="text-xs font-bold tracking-widest uppercase text-gold-600">STEP 05 · HOW TO USE</span>
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-earth-900 mt-1 mb-3">新手實用操作手冊</h2>
-        <p class="text-earth-600 text-sm sm:text-base">掌握<strong>「豐盛使用（擦到皮膚感覺微濕潤）」</strong>與<strong>「由小分子到大分子」</strong>順序，零基礎也能輕鬆上手。</p>
+    <!-- ========================================================== -->
+    <!-- 第五區：新手 3 分鐘體驗儀 ＆ 防呆 3 原則（#experience）        -->
+    <!-- ========================================================== -->
+    <section id="experience" class="scroll-mt-24 space-y-10">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="text-xs font-bold tracking-widest uppercase text-gold-600">STEP 05 · 3-MIN CALIBRATION</span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-earth-900 mt-1 mb-3">新手 3 分鐘頻率校準體驗儀</h2>
+        <p class="text-earth-600 text-sm sm:text-base">花 3 分鐘跟著以下 4 個步驟親自感受一次，看看身體緊繃指數如何從高分降下來。</p>
       </div>
 
-      <!-- 黃金使用四步驟流程條 -->
-      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-cream-200 shadow-sm mb-8">
-        <h3 class="font-serif text-xl font-bold text-earth-900 mb-6 flex items-center gap-2">
-          <span>✨</span> 黃金使用 4 步驟（由小分子到大分子）
-        </h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="bg-cream-50 rounded-2xl p-5 border border-cream-200 relative">
-            <span class="inline-block px-2.5 py-0.5 rounded-full bg-earth-800 text-white text-xs font-bold mb-3">STEP 1 · 清潔大掃除</span>
-            <h4 class="font-bold text-earth-900 mb-1.5">洗沐排毒（選用）</h4>
-            <p class="text-xs sm:text-sm text-earth-600 leading-relaxed">
-              洗澡時用<strong>光子玫瑰純淨露</strong>或 <strong>Moor 墨泥</strong>搓洗全身 3～5 分鐘，打開毛孔並清除濁氣，讓後續花晶更好吸收。
-            </p>
+      <!-- 互動式「3 分鐘頻率校準體驗儀」 -->
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-cream-200 shadow-sm space-y-8">
+        <!-- 步驟 1：定位 -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-3">
+            <span class="px-3 py-1 rounded-full bg-earth-800 text-white text-xs font-bold">步驟 1 · 定位</span>
+            <h3 class="font-serif text-lg sm:text-xl font-bold text-earth-900">摸摸看，此刻身體哪裡最有感覺？</h3>
           </div>
-
-          <div class="bg-cream-50 rounded-2xl p-5 border border-cream-200 relative">
-            <span class="inline-block px-2.5 py-0.5 rounded-full bg-gold-600 text-white text-xs font-bold mb-3">STEP 2 · 核心滲透</span>
-            <h4 class="font-bold text-earth-900 mb-1.5">擦身體花晶＋嗅吸</h4>
-            <p class="text-xs sm:text-sm text-earth-600 leading-relaxed">
-              倒出 <strong>5～10 滴</strong>塗抹對應部位至<strong>微濕潤</strong>（多支請單支疊擦），擦完雙手合十靠近鼻口做 <strong>3～5 次深呼吸嗅吸</strong>。
-            </p>
-          </div>
-
-          <div class="bg-cream-50 rounded-2xl p-5 border border-cream-200 relative">
-            <span class="inline-block px-2.5 py-0.5 rounded-full bg-sage-700 text-white text-xs font-bold mb-3">STEP 3 · 能量放大</span>
-            <h4 class="font-bold text-earth-900 mb-1.5">大面積抹光子霜</h4>
-            <p class="text-xs sm:text-sm text-earth-600 leading-relaxed">
-              在擦過花晶的區域塗抹 <strong>1～2 枚 10 元硬幣大小</strong>的光子花鑰霜（敏感肌用寶寶霜），放大穿透力並鬆動筋膜。
-            </p>
-          </div>
-
-          <div class="bg-cream-50 rounded-2xl p-5 border border-cream-200 relative">
-            <span class="inline-block px-2.5 py-0.5 rounded-full bg-earth-700 text-white text-xs font-bold mb-3">STEP 4 · 鎖護與內服</span>
-            <h4 class="font-bold text-earth-900 mb-1.5">擦彩油＋喝口服花晶</h4>
-            <p class="text-xs sm:text-sm text-earth-600 leading-relaxed">
-              最後塗一層<strong>能量彩油</strong>像保鮮膜鎖住時效；並在每天喝的水或飲料中滴入<strong>半滴管口服花晶</strong>裡應外合。
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 新手防呆三大禁忌（醒目警示卡） -->
-      <div class="bg-red-50/70 rounded-3xl p-6 sm:p-8 border border-red-200/80 mb-8">
-        <div class="flex items-center gap-2.5 mb-5">
-          <span class="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-sm">!</span>
-          <h3 class="font-serif text-xl font-bold text-red-950">新手防呆 3 大禁忌（非常重要）</h3>
-        </div>
-        <div class="grid md:grid-cols-3 gap-4">
-          <div class="bg-white rounded-2xl p-5 border border-red-100 shadow-sm">
-            <div class="text-red-700 font-bold text-sm mb-1.5">🚫 禁忌 1：身體花晶不可混瓶</div>
-            <p class="text-xs sm:text-sm text-earth-700 leading-relaxed">
-              每支身體花晶有獨立的顏色與氣味療癒，<strong>不能全倒在手上混合</strong>。若要擦兩支以上，請先擦完第一支，再接續疊擦第二支。
-            </p>
-          </div>
-          <div class="bg-white rounded-2xl p-5 border border-red-100 shadow-sm">
-            <div class="text-red-700 font-bold text-sm mb-1.5">🚫 禁忌 2：身體花晶不可口服</div>
-            <p class="text-xs sm:text-sm text-earth-700 leading-relaxed">
-              身體花晶含高濃度植物精油（如穗花薄荷），<strong>僅供皮膚外用，絕對不能喝</strong>！無色無味的「口服花晶」才可以滴入飲料並全部混喝。
-            </p>
-          </div>
-          <div class="bg-white rounded-2xl p-5 border border-red-100 shadow-sm">
-            <div class="text-red-700 font-bold text-sm mb-1.5">🚫 禁忌 3：黏膜與臉部不單擦</div>
-            <p class="text-xs sm:text-sm text-earth-700 leading-relaxed">
-              因含天然植物白蘭地基底，擦<strong>全臉、眼周、私密處或破皮傷口</strong>前，務必先將 5～10 滴花晶＋10 元硬幣大小光子霜在掌心混勻再擦。
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 進階生活妙用與早晚懶人包 -->
-      <div class="grid md:grid-cols-2 gap-6">
-        <!-- 空間噴霧與特殊調和 -->
-        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-cream-200 shadow-sm">
-          <h3 class="font-serif text-lg sm:text-xl font-bold text-earth-900 mb-4 flex items-center gap-2">
-            <span>🌬️</span> 生活延伸妙用：空間與氣場防護
-          </h3>
-          <ul class="space-y-3.5 text-xs sm:text-sm text-earth-700 leading-relaxed">
-            <li class="flex gap-3">
-              <span class="font-bold text-gold-600 shrink-0">• 空間淨化噴霧：</span>
-              <span>在 50～100ml 噴霧瓶或水氧機中加入純水，滴入 <strong>10～15 滴</strong>「能量場保護」或「能量場淨化」，搖勻噴灑房間與床鋪。</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="font-bold text-gold-600 shrink-0">• 口罩防護噴霧：</span>
-              <span>將調好的噴霧噴在口罩<strong>外側</strong>（能量場保護）或<strong>內側</strong>（能量場淨化）3～5 下，建立隨身呼吸防護。</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="font-bold text-gold-600 shrink-0">• 隨身氣場防護罩：</span>
-              <span>去人多的地方前，滴 <strong>5～10 滴</strong>「能量場保護」在掌心，掌心朝外在身體周圍空氣由上往下畫圓包覆自己，再搓熱嗅吸。</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="font-bold text-gold-600 shrink-0">• 口服懶人調配瓶：</span>
-              <span>準備一個隨身滴管空瓶，把挑好的幾支口服花晶各倒一些混合，每次喝水、茶、咖啡時隨手滴<strong>半滴管</strong>即可。</span>
-            </li>
-          </ul>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 mb-4" id="cal-part-buttons"></div>
+          <div id="cal-part-recommendation" class="bg-cream-50 rounded-2xl p-4 border border-cream-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3"></div>
         </div>
 
-        <!-- 早晚 3 分鐘懶人流程 -->
-        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-cream-200 shadow-sm">
-          <h3 class="font-serif text-lg sm:text-xl font-bold text-earth-900 mb-4 flex items-center gap-2">
-            <span>⏰</span> 新手日常「早晚 3 分鐘」懶人流程
-          </h3>
-          <div class="space-y-4">
-            <div class="bg-cream-50 rounded-2xl p-4 border border-cream-200/80">
-              <div class="font-bold text-earth-900 text-sm mb-1">☀️ 早上出門前（啟動活力與防護）</div>
-              <p class="text-xs sm:text-sm text-earth-600 leading-relaxed">
-                喝水滴入<strong>口服花晶</strong> → 在重點脈輪擦<strong>身體花晶</strong>＋<strong>光子花鑰霜</strong> → 掌心滴<strong>能量場保護</strong>在身體外圍畫圓建立防護罩。
+        <!-- 步驟 2 & 步驟 3：前測打分數 + 滴敷嗅長吐氣計時器 -->
+        <div class="grid lg:grid-cols-2 gap-6 pt-6 border-t border-cream-200">
+          <!-- 步驟 2：前測 -->
+          <div class="bg-cream-50/80 rounded-2xl p-5 sm:p-6 border border-cream-200 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-3 py-1 rounded-full bg-gold-600 text-white text-xs font-bold">步驟 2 · 前測打分數</span>
+                <h4 class="font-bold text-earth-900 text-base">記錄此刻的不舒服程度</h4>
+              </div>
+              <p class="text-xs sm:text-sm text-earth-600 mb-5 leading-relaxed">
+                閉上眼睛感覺一下剛剛選的部位，如果「完全放鬆是 1 分、緊繃到快受不了是 10 分」，現在大約幾分？
               </p>
             </div>
-            <div class="bg-cream-50 rounded-2xl p-4 border border-cream-200/80">
-              <div class="font-bold text-earth-900 text-sm mb-1">🌙 晚上洗澡後（深層釋放與修復）</div>
-              <p class="text-xs sm:text-sm text-earth-600 leading-relaxed">
-                用 <strong>Moor 墨泥</strong>或<strong>光子玫瑰純淨露</strong>沐浴 → 擦<strong>身體花晶</strong>（單支疊擦）並雙手嗅吸 → 抹<strong>光子霜</strong> → 擦<strong>能量彩油</strong>鎖住能量（睡前可在肩頸與頭部擦「恬美夢境」幫助深眠）。
+            <div class="bg-white rounded-2xl p-4 border border-cream-200">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-bold text-earth-600">目前緊繃指數（前測）</span>
+                <span class="text-2xl font-serif font-bold text-gold-600"><span id="pre-score-val">7</span> <span class="text-xs font-sans text-earth-600">/ 10 分</span></span>
+              </div>
+              <input type="range" id="pre-score-slider" min="1" max="10" value="7" oninput="updateScoreDisplay()" class="w-full accent-gold-600 cursor-pointer" />
+              <div class="flex justify-between text-[11px] text-earth-600 mt-1">
+                <span>1 分（輕鬆平穩）</span>
+                <span>5 分（微緊有感）</span>
+                <span>10 分（緊繃過載）</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 步驟 3：滴敷嗅 + 30 秒長吐氣引導計時器 -->
+          <div class="bg-sage-100/50 rounded-2xl p-5 sm:p-6 border border-sage-500/20 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-3 py-1 rounded-full bg-sage-700 text-white text-xs font-bold">步驟 3 · 滴敷嗅＋長吐氣</span>
+                <h4 class="font-bold text-earth-900 text-base">花晶共振與 30 秒呼吸引導</h4>
+              </div>
+              <p class="text-xs sm:text-sm text-earth-700 mb-4 leading-relaxed">
+                倒 <strong>5～10 滴</strong>推薦花晶擦在該部位至微濕潤，雙手合十蓋住鼻子深吸香氣，點擊下方按鈕跟著做 <strong>30 秒「吸氣 3 秒 → 慢吐 6 秒」</strong>（手邊暫無花晶也可直接跟著呼吸）：
               </p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-4 border border-sage-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div class="flex items-center gap-3.5">
+                <div class="relative w-14 h-14 flex items-center justify-center shrink-0">
+                  <div id="breath-circle" class="w-10 h-10 rounded-full bg-sage-500/25 border-2 border-sage-700 flex items-center justify-center text-xs font-bold text-sage-700">
+                    準備
+                  </div>
+                </div>
+                <div>
+                  <div id="breath-instruction" class="font-bold text-sm text-earth-900">點擊右側開始 30 秒引導</div>
+                  <div id="breath-timer-text" class="text-xs text-earth-600 mt-0.5">吸氣 3 秒 · 嘴巴慢慢吹氣 6 秒</div>
+                </div>
+              </div>
+              <button type="button" id="breath-btn" onclick="toggleBreathTimer()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-sage-700 text-white text-xs sm:text-sm font-medium hover:bg-earth-800 transition shrink-0 shadow-sm">
+                ▶ 開始 30 秒呼吸
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 步驟 4：後測打分數與結果回饋 -->
+        <div class="pt-6 border-t border-cream-200">
+          <div class="flex items-center gap-2.5 mb-3">
+            <span class="px-3 py-1 rounded-full bg-earth-800 text-white text-xs font-bold">步驟 4 · 後測看變化</span>
+            <h3 class="font-serif text-lg sm:text-xl font-bold text-earth-900">再感覺一次那個部位，現在剩幾分？</h3>
+          </div>
+
+          <div class="grid md:grid-cols-12 gap-6 items-center">
+            <div class="md:col-span-7 bg-cream-50 rounded-2xl p-4 border border-cream-200">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-bold text-earth-600">體驗後緊繃指數（後測）</span>
+                <span class="text-2xl font-serif font-bold text-sage-700"><span id="post-score-val">4</span> <span class="text-xs font-sans text-earth-600">/ 10 分</span></span>
+              </div>
+              <input type="range" id="post-score-slider" min="1" max="10" value="4" oninput="updateScoreDisplay()" class="w-full accent-sage-700 cursor-pointer" />
+              <div class="flex justify-between text-[11px] text-earth-600 mt-1">
+                <span>1 分（鬆開流動）</span>
+                <span>5 分（明顯緩和）</span>
+                <span>10 分（依然緊繃）</span>
+              </div>
+            </div>
+
+            <div class="md:col-span-5">
+              <button type="button" onclick="showCalibrationResult()" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-gold-600 to-gold-500 text-white font-bold text-sm sm:text-base hover:opacity-95 transition shadow-sm">
+                ✨ 查看校準結果與回饋
+              </button>
+            </div>
+          </div>
+
+          <!-- 校準結果回饋面板 -->
+          <div id="calibration-result-box" class="hidden mt-5 rounded-2xl p-5 sm:p-6 bg-sage-100/70 border border-sage-500/30"></div>
+        </div>
+      </div>
+
+      <!-- 簡明使用順序與新手防呆 3 大禁忌 -->
+      <div class="grid lg:grid-cols-12 gap-6">
+        <!-- 左側：黃金使用 4 步驟 -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border border-cream-200 shadow-sm">
+          <h3 class="font-serif text-lg sm:text-xl font-bold text-earth-900 mb-4 flex items-center gap-2">
+            <span>✨</span> 黃金使用順序（小分子 → 大分子）
+          </h3>
+          <ol class="space-y-3 text-xs sm:text-sm text-earth-700">
+            <li class="flex gap-3 items-start bg-cream-50 p-3 rounded-xl border border-cream-200/70">
+              <span class="w-5 h-5 rounded-full bg-earth-800 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
+              <div><strong>清潔大掃除（選用）：</strong>洗澡時用「光子玫瑰純淨露」或「Moor 墨泥」搓洗全身，打開毛孔清濁氣。</div>
+            </li>
+            <li class="flex gap-3 items-start bg-cream-50 p-3 rounded-xl border border-cream-200/70">
+              <span class="w-5 h-5 rounded-full bg-gold-600 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
+              <div><strong>擦身體花晶＋嗅吸：</strong>倒 5～10 滴塗抹至皮膚微濕潤，擦完雙手合十靠近鼻口深呼吸 3～5 次。</div>
+            </li>
+            <li class="flex gap-3 items-start bg-cream-50 p-3 rounded-xl border border-cream-200/70">
+              <span class="w-5 h-5 rounded-full bg-sage-700 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
+              <div><strong>抹光子霜放大：</strong>取 1～2 枚 10 元硬幣大小「光子花鑰霜（或寶寶霜）」大面積塗抹，放大滲透力。</div>
+            </li>
+            <li class="flex gap-3 items-start bg-cream-50 p-3 rounded-xl border border-cream-200/70">
+              <span class="w-5 h-5 rounded-full bg-earth-700 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">4</span>
+              <div><strong>擦彩油鎖護＋喝口服：</strong>最後抹「能量彩油」鎖住時效；喝水或飲料時滴入半滴管「口服花晶」。</div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- 右側：新手防呆 3 大禁忌 -->
+        <div class="lg:col-span-7 bg-red-50/70 rounded-3xl p-6 sm:p-8 border border-red-200/80 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2.5 mb-5">
+              <span class="w-7 h-7 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-xs">!</span>
+              <h3 class="font-serif text-lg sm:text-xl font-bold text-red-950">新手防呆 3 大原則（使用前必看）</h3>
+            </div>
+            <div class="space-y-3.5">
+              <div class="bg-white rounded-2xl p-4 border border-red-100 shadow-sm">
+                <div class="text-red-700 font-bold text-sm mb-1">🚫 原則 1：身體花晶「不可混瓶」，要單支疊擦</div>
+                <p class="text-xs sm:text-sm text-earth-700 leading-relaxed">
+                  每支身體花晶都有獨立的色彩與氣味療癒，<strong>不能全倒在手上混合</strong>。若要在同一部位擦兩支以上，請先擦完第一支，等幾秒吸收後再疊擦第二支。
+                </p>
+              </div>
+              <div class="bg-white rounded-2xl p-4 border border-red-100 shadow-sm">
+                <div class="text-red-700 font-bold text-sm mb-1">🚫 原則 2：身體花晶「不可口服」，口服花晶才可滴水</div>
+                <p class="text-xs sm:text-sm text-earth-700 leading-relaxed">
+                  身體花晶含有高濃度植物精油（如穗花薄荷），<strong>僅供皮膚外用，絕對不能喝</strong>；無色無味的「口服花晶」才可以滴進飲品裡，且口服花晶可以全部混在一起喝。
+                </p>
+              </div>
+              <div class="bg-white rounded-2xl p-4 border border-red-100 shadow-sm">
+                <div class="text-red-700 font-bold text-sm mb-1">🚫 原則 3：臉部、眼周與私密處黏膜，務必先調霜再擦</div>
+                <p class="text-xs sm:text-sm text-earth-700 leading-relaxed">
+                  因含天然植物白蘭地基底，塗抹<strong>全臉、眼周、下體黏膜或皮膚破皮處</strong>前，請先將 5～10 滴花晶＋10 元硬幣大小光子花鑰霜（或寶寶霜）在掌心混合均勻後再擦。
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -524,74 +683,57 @@
   <!-- 頁尾 -->
   <footer class="border-t border-cream-200 bg-cream-100/60 py-8 mt-12">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center text-xs sm:text-sm text-earth-600">
-      <p class="font-serif font-medium text-earth-800 mb-1">澳洲花晶｜新手入門互動指南</p>
-      <p>核心心法：「身心覺察為主，能量工具為輔」—— 帶著理解與允許陪伴每一次的身體感受。</p>
+      <p class="font-serif font-medium text-earth-800 mb-1">澳洲花晶｜新手入門與共振體驗指南</p>
+      <p>核心心法：「身心覺察為主，能量工具為輔」—— 帶著理解與允許，陪伴身體每一次的真實感受。</p>
     </div>
   </footer>
 
   <!-- 互動腳本 -->
   <script>
+    // ==========================================
     // 1. 三道療癒互動資料
+    // ==========================================
     const healingSteps = [
       {
-        badge: "第一道療癒 · 身",
-        title: "色彩視覺療癒",
-        icon: "👁️",
-        desc: "每一支身體花晶都萃取自天然植物與花朵，呈現鮮豔飽和的植物原色。當肉眼看到花晶顏色的瞬間，潛意識會不經思考地浮現直覺感受（喜歡、冷感或排斥），透過大自然彩光波頻對應修復身體器官與脈輪。"
+        shortTitle: "👁️ 視覺色彩",
+        title: "第一道｜色彩視覺療癒（身）",
+        desc: "天然植物飽和色彩在進入眼簾的瞬間，會直接勾起潛意識的直覺感受（喜歡、冷感或排斥），透過大自然彩光波頻對應修復器官與脈輪。"
       },
       {
-        badge: "第二道療癒 · 心",
-        title: "無形嗅覺療癒",
-        icon: "👃",
-        desc: "天然植物香氣經由嗅覺神經直達大腦邊緣系統（情緒與記憶中樞），能穿透氣脈、勾出深層的潛意識訊息。對特定花晶氣味的排斥程度，往往直接反映了相關主題的情緒凍結深度。"
+        shortTitle: "👃 無形嗅覺",
+        title: "第二道｜無形嗅覺療癒（心）",
+        desc: "植物香氣經由嗅覺神經直達大腦邊緣系統（情緒與記憶中樞），不經過頭腦思考就能喚醒並鬆動深層的情緒印記。"
       },
       {
-        badge: "第三道療癒 · 身心合一",
-        title: "高頻能量交換",
-        icon: "✨",
-        desc: "液態水分子裝載高頻水晶與寶石的渾厚波頻，塗抹滲透進身體後，會與長期累積的低頻創傷印記產生共振，讓原本凍結緊繃的能量碎化、流動並自然釋放。"
+        shortTitle: "✨ 能量交換",
+        title: "第三道｜高頻能量交換（身心合一）",
+        desc: "液態水分子裝載水晶礦石的渾厚波頻，滲透肌膚後與低頻緊繃印記產生共振，讓凍結的能量碎化、流動並自然釋放。"
       }
     ];
 
     let activeHealingIdx = 0;
 
-    function renderHealingTabs() {
-      const container = document.getElementById('healing-tabs');
-      container.innerHTML = healingSteps.map((step, idx) => {
-        const isActive = idx === activeHealingIdx;
-        return `
-          <button type="button" onclick="selectHealingStep(${idx})"
-            class="text-left p-4 rounded-2xl border transition flex items-center gap-3 ${isActive ? 'bg-earth-800 text-cream-50 border-earth-800 shadow-sm' : 'bg-cream-50 text-earth-800 border-cream-200 hover:bg-cream-100'}">
-            <span class="text-2xl">${step.icon}</span>
-            <div>
-              <div class="text-[11px] font-bold ${isActive ? 'text-gold-400' : 'text-gold-600'}">${step.badge}</div>
-              <div class="font-bold text-sm sm:text-base">${step.title}</div>
-            </div>
-          </button>
-        `;
-      }).join('');
-    }
-
     function selectHealingStep(idx) {
       activeHealingIdx = idx;
-      renderHealingTabs();
-      const step = healingSteps[idx];
+      const tabs = document.getElementById('healing-tabs');
+      tabs.innerHTML = healingSteps.map((s, i) => `
+        <button type="button" onclick="selectHealingStep(${i})"
+          class="py-1.5 px-2 rounded-xl text-[11px] font-bold transition border text-center ${i === idx ? 'bg-earth-800 text-cream-50 border-earth-800' : 'bg-white text-earth-700 border-cream-200 hover:bg-cream-100'}">
+          ${s.shortTitle}
+        </button>
+      `).join('');
+
       const detail = document.getElementById('healing-detail');
+      const current = healingSteps[idx];
       detail.innerHTML = `
-        <div class="flex items-start gap-4">
-          <div class="w-12 h-12 rounded-2xl bg-white border border-cream-200 flex items-center justify-center text-2xl shrink-0 shadow-sm">
-            ${step.icon}
-          </div>
-          <div>
-            <span class="text-xs font-bold text-gold-600">${step.badge}</span>
-            <h4 class="font-serif text-lg font-bold text-earth-900 mb-1.5">${step.title}</h4>
-            <p class="text-sm sm:text-base text-earth-700 leading-relaxed">${step.desc}</p>
-          </div>
-        </div>
+        <div class="font-bold text-earth-900 mb-1">${current.title}</div>
+        <p class="text-earth-700">${current.desc}</p>
       `;
     }
 
+    // ==========================================
     // 2. 七大脈輪資料
+    // ==========================================
     const chakras = [
       {
         id: 1,
@@ -729,7 +871,6 @@
       activeChakraId = id;
       renderChakraPills();
 
-      // 更新 SVG 節點高亮狀態
       chakras.forEach(c => {
         const node = document.getElementById(`node-${c.id}`);
         const ring = document.getElementById(`node-ring-${c.id}`);
@@ -749,7 +890,6 @@
         }
       });
 
-      // 更新右側詳細資訊卡（含情緒模式與身體症狀）
       const c = chakras.find(item => item.id === id);
       const card = document.getElementById('chakra-card');
       card.style.backgroundColor = c.bgLight;
@@ -770,7 +910,7 @@
 
         <div class="space-y-3.5">
           <div>
-            <div class="text-xs font-bold text-earth-600 mb-1">📍 人體中軸位置與塗抹範圍</div>
+            <div class="text-xs font-bold text-earth-600 mb-1">📍 身體位置與塗抹範圍</div>
             <p class="text-sm font-medium text-earth-800 bg-white/85 px-4 py-2.5 rounded-xl border border-white">
               ${c.location}
             </p>
@@ -842,59 +982,61 @@
       } else {
         tableView.classList.add('hidden');
         interactiveView.classList.remove('hidden');
-        btnText.textContent = '切換為「全部 7 脈輪總覽表」';
+        btnText.textContent = '切換全部 7 脈輪總覽表';
         btnIcon.textContent = '📋';
       }
     }
 
-    // 3. 生活情境速查資料
+    // ==========================================
+    // 3. 生活情境對號入座（6 大日常場景）
+    // ==========================================
     const scenarios = [
       {
         icon: "🐢",
-        title: "拖延沒動力、或焦慮瞎忙停不下來",
-        symptom: "常覺得沒安全感、腰腿緊繃、容易水腫或疲累無力",
+        title: "1. 拖延沒動力、或焦慮瞎忙停不下來",
+        symptom: "常覺得沒安全感、腰腿緊繃、容易水腫或疲累想躺平",
         coreBottle: "1 號花晶",
         supportBottle: "氣結釋放（打通卡住的氣血與行動力）",
         oralBottle: "原動力、能量"
       },
       {
         icon: "💗",
-        title: "在關係裡容易委屈討好、覺得缺愛",
-        symptom: "容易嘴饞暴食、購物紓壓、或婦科與下腹冰冷緊繃",
+        title: "2. 關係裡委屈討好、或下腹婦科緊繃",
+        symptom: "容易缺愛空虛、嘴饞暴食、購物紓壓或生理期不順",
         coreBottle: "2 號花晶",
         supportBottle: "心靈修護（補充內在柔愛、修復自我價值）",
         oralBottle: "大地之母、關係花園"
       },
       {
         icon: "🔥",
-        title: "壓力大就胃痛、有苦說不出、沒自信",
-        symptom: "習慣隱忍委屈，或相反地容易急躁易怒、好勝愛比較",
+        title: "3. 壓力大胃痛、有苦說不出或愛比較",
+        symptom: "習慣隱忍委屈，或相反地容易急躁易怒、好勝緊繃",
         coreBottle: "3 號花晶",
         supportBottle: "情緒修護、財運之星（消化情緒、長出自信）",
         oralBottle: "豐富力、急救"
       },
       {
         icon: "🪨",
-        title: "肩頸像背了千斤重、真心話總吞回去",
-        symptom: "習慣扛起別人責任、喉嚨緊緊的、怕面對權威長輩",
+        title: "4. 肩頸硬如石、替別人扛太多責任",
+        symptom: "習慣當救火隊、喉嚨緊緊的、真心話總吞回去",
         coreBottle: "5 號花晶",
         supportBottle: "氣結釋放、意識轉化（鬆開肩頸硬塊與框架）",
         oralBottle: "叛逆心、轉換力"
       },
       {
         icon: "🌙",
-        title: "用腦過度、思緒停不下來、淺眠多夢",
-        symptom: "經常頭痛頭暈、完美主義、對自己要求太高難放鬆",
+        title: "5. 用腦過度、思緒停不下來與淺眠",
+        symptom: "經常頭痛頭暈、完美主義、睡前大腦像馬達轉不停",
         coreBottle: "6 號 ＋ 7 號花晶",
         supportBottle: "恬美夢境、靈性修護（放鬆神經、幫助關機）",
         oralBottle: "寧靜心、理性與感性"
       },
       {
-        icon: "🛡️",
-        title: "敏感體質、去人多的地方容易累或受干擾",
-        symptom: "容易把別人的情緒往身上攬、界線感較弱易疲憊",
+        icon: "📶",
+        title: "6. 社交藍牙耗電防護（親子/伴侶/高敏）",
+        symptom: "親子暴走、伴侶冷戰、或去人多場所容易受干擾疲累",
         coreBottle: "1 號 ＋ 6 號花晶",
-        supportBottle: "能量場保護、純淨極光（建立防護罩與淨化）",
+        supportBottle: "能量場保護、純淨極光（穩住中心、建立防護罩）",
         oralBottle: "磁波防禦、寶貝肌膚"
       }
     ];
@@ -930,7 +1072,9 @@
       `).join('');
     }
 
-    // 4. 產品家族圖鑑資料（含每款產品詳細說明與專屬配色/包裝類型）
+    // ==========================================
+    // 4. 產品家族圖鑑資料（52 款完整產品 + SVG 插畫）
+    // ==========================================
     const productDetailsDB = {
       // --- 身體花晶：基礎 7 支 ---
       "1號花晶": {
@@ -942,8 +1086,8 @@
         colorLabel: "鮮豔紅色（土元素 · 海底輪）",
         summary: "對應第1脈輪海底輪與原生家庭根基，點燃發自內心的生命熱情與腳踏實地的積極行動力。",
         ingredients: "雪松、沒藥、廣藿香、犬狀玫瑰、巨頭花、水之畔、鳶尾花、紅寶石、赤鐵礦",
-        usage: "塗抹於下半身全區（腳底、腳趾、腳踝、膝蓋、鼠蹊、整片腰椎）；亦可取 7～10 滴混合光子花鑰霜擦拭下體全區。排斥紅色或氣味者建議刻意加強使用。",
-        reaction: "常見好轉反應：頻尿（排出腎臟恐懼）、疲累感、下身關節微酸麻或腳底脫皮，隨後會感到下盤穩固、行動更有力量。"
+        usage: "塗抹於下半身全區（腳底、腳趾、腳踝、膝蓋、鼠蹊、整片腰椎）；亦可取 7～10 滴混合光子花鑰霜擦拭下體全區。",
+        reaction: "排斥紅色或氣味者建議刻意加強使用，能幫助身體穩固接地、擺脫拖延或焦慮瞎忙。"
       },
       "2號花晶": {
         category: "身體花晶 · 基礎脈輪系列",
@@ -955,7 +1099,7 @@
         summary: "對應第2脈輪與母親的關係，滋養女性陰性柔愛力量，化解關係中的疏離討好與暴食/購物等空虛填補模式。",
         ingredients: "茉莉、玫瑰、檀香、伊蘭、絲柏、雌橡木、比利梅、刷刷花、梔子花、金黃晶、瑪瑙",
         usage: "環繞塗抹於恥骨到肚臍一整圈（含後腰區）；女性保養可與1號花晶、心靈修護混合光子花鑰霜輕柔撫觸下體。",
-        reaction: "常見好轉反應：頻尿、腰痠、下腹微悶脹或生理週期短暫調節，幫助釋放對女性身分與母親的凍結情緒。"
+        reaction: "幫助釋放對女性身分與母親的凍結情緒，讓情緒與親密關係自然流動。"
       },
       "3號花晶": {
         category: "身體花晶 · 基礎脈輪系列",
@@ -967,7 +1111,7 @@
         summary: "對應上腹腔消化系統（左胃脾胰、右肝膽）與腎上腺素，化解自卑委屈與好勝比較，長出從容無畏的真實自信。",
         ingredients: "佛手柑、絲柏、雪松、茴香、橙花、山靈花、歡宴灌木、荒漠玫瑰、克羅花、太陽石、黃水晶",
         usage: "塗抹於肚臍至肋骨環繞一整圈（含整個上腹腔與中段脊椎）。不敢表現自己或容易胃痛、肝火旺者特別適合。",
-        reaction: "常見好轉反應：胃悶脹、乾嘔或腹瀉（釋放隱忍的委屈情緒）、口破或食量自動調整。"
+        reaction: "使用後可能出現胃悶、打嗝或腸胃蠕動，是身體正在消化累積壓力的表現。"
       },
       "4號花晶": {
         category: "身體花晶 · 基礎脈輪系列",
@@ -979,7 +1123,7 @@
         summary: "連結下三輪物質與上三輪靈性的橋樑，修復自我批判與不配得感，開啟真心接納自己、平衡「給予與接受」的能力。",
         ingredients: "佛手柑、香桃木、薰衣草、馬鬱蘭、玫瑰、藍鐘花、粉紅法蘭絨、囊鞘花、五角花、雪梨玫瑰、孔雀石、祖母綠",
         usage: "塗抹於上胸全區（胸口、左右乳房、鎖骨、腋下淋巴、上半背肩胛骨、雙手掌與手腕手肘）。",
-        reaction: "常見好轉反應：呼吸變深或短暫胸悶（釋放舊有心痛）、手部微酸麻、上半背痠痛鬆開。"
+        reaction: "幫助呼吸變深、胸口鬆開，不再因為害怕不夠好而過度犧牲或自我防備。"
       },
       "5號花晶": {
         category: "身體花晶 · 基礎脈輪系列",
@@ -991,7 +1135,7 @@
         summary: "對應喉嚨、甲狀腺與肩頸，幫助溫和而有力量地說出真心話，放下過度扛責與對權威的抗爭，學會順應生命之流。",
         ingredients: "洋甘菊、沒藥、尤加利、百里香、梔子花、古龍眼、土耳其灌木、金鐘花、鳶尾花、綠松石、藍晶石",
         usage: "塗抹於左右肩膀、鎖骨到下巴、整個脖子與後頸大椎環繞一圈。",
-        reaction: "常見好轉反應：乾咳或咳痰（釋放敢怒不敢言的情緒）、口苦口破、牙齦微腫脹、肩頸逐漸鬆動。"
+        reaction: "幫助肩頸鬆動，讓吞嚥已久的真心話能溫和且堅定地表達出來。"
       },
       "6號花晶": {
         category: "身體花晶 · 基礎脈輪系列",
@@ -1003,7 +1147,7 @@
         summary: "啟動向內觀照的心靈智慧之眼，放下完美主義、愛面子與自我挑剔，在過度理性與過度感性之間找回清醒洞察。",
         ingredients: "薰衣草、羅勒、迷迭香、白千層、黃流星蘭、波隆納、朝露、貝蒂花、鳶尾花、拉長石、藍銅礦",
         usage: "取 10～15 滴於雙掌心輕貼閉眼敷 3～5 分鐘；塗抹全臉時務必先與光子花鑰霜混合，亦可直接滴於耳前耳後與後枕骨。",
-        reaction: "常見好轉反應：短暫頭暈或頭痛（正視迴避已久的心痛議題）、多夢、流鼻水或眼乾癢，隨後思緒變得清澈。"
+        reaction: "幫助大腦雜訊降速，讓過度緊繃的眼神與太陽穴逐漸放鬆清澈。"
       },
       "7號花晶": {
         category: "身體花晶 · 基礎脈輪系列",
@@ -1015,7 +1159,7 @@
         summary: "集結全脈輪能量交匯處，打破固守舊經驗的僵化思維，讓高維度直覺靈感與第1脈輪腳踏實地的行動力完美結合。",
         ingredients: "薰衣草、乳香、葡萄柚、百里香、迷迭香、金鐘花、紅睡蓮、綠蜘蛛蘭、木棉花、鳶尾花、紫水晶、魚眼石",
         usage: "直接滴塗於整個頭皮、額頭、髮際線並輕柔按摩頭皮；常與 1 號花晶搭配使用（上下對應）。",
-        reaction: "常見好轉反應：多夢（潛意識深層釋放）、頭部放鬆輕盈、睡眠品質提升、邏輯與直覺切換更自如。"
+        reaction: "有助提升睡眠品質與思緒清晰度，讓思考邏輯與感性直覺切換自如。"
       },
 
       // --- 身體花晶：進階修護 15 支 ---
@@ -1029,7 +1173,7 @@
         summary: "主打通無形氣脈、帶動有形血脈流動。像所有花晶的「前置藥引」，能鬆開長期淤塞的肌肉硬塊、淋巴結節與舊傷氣結。",
         ingredients: "羅勒、穗花薄荷、黑胡椒、天竺葵、巨頭花、克羅花、木拉花、芒眼蘇珊、野生玫瑰、方解石、拓帕石",
         usage: "全脈輪與全身僵硬緊繃處皆適用；建議在擦其他身體花晶之前先擦氣結釋放與1號花晶，穿透力加倍。",
-        reaction: "越瘀塞硬結的部位越可能出現酸、痛、麻、冷、熱或無來由的深層悲傷釋放。"
+        reaction: "越瘀塞硬結的部位越可能出現微酸、微熱或放鬆感，代表能量通路正在打開。"
       },
       "財運之星": {
         category: "修護花晶 · 生命力量系列",
@@ -1041,7 +1185,7 @@
         summary: "全系列黃水晶含量最高的一支！強化第3脈輪膽識、魄力與自我展現的信心，不再因自我懷疑而推拖成功與豐盛機會。",
         ingredients: "橙花、雪松、茉莉、洋甘菊、花梨木、朝陽合歡、紅桂蓮、茶樹、波爪花、木棉花、太陽石、琥珀",
         usage: "可疊擦於第1脈輪（精準行動）、第3脈輪（自信展現）、第4脈輪（大方接受豐盛）或第5脈輪（有力表達）。",
-        reaction: "可能出現胃悶、乾嘔、腹瀉或重啟被壓抑的生氣火元素，點燃生命的創造動能。"
+        reaction: "帶來溫暖的中心支持感，非常適合在需要談判、簡報或設定界線前敷在胃部。"
       },
       "學習力": {
         category: "修護花晶 · 生命力量系列",
@@ -1053,7 +1197,7 @@
         summary: "幫助注意力回到當下，提升大腦與心智「吸收、分解、內化」所學知識的能力，不再學過就忘或流於表面。",
         ingredients: "檸檬草、迷迭香、茉莉、銀杏、艾索波、蘭楹花、朝露、波爪花、貝蒂花、黃水晶、土耳其石",
         usage: "疊擦於第3脈輪（上腹部）與第7脈輪（頭皮），非常適合學生、備考族或需要高度專注與吸收新知的人。",
-        reaction: "情緒消化不良或長期分心者，初期可能出現微胃悶或輕微頭痛。"
+        reaction: "幫助分散在外的思緒收攝回來，專注於眼前的學習與生活體驗。"
       },
       "心靈修護": {
         category: "修護花晶 · 愛的能量系列",
@@ -1065,7 +1209,7 @@
         summary: "以極高頻的柔性之愛融化心碎印記，喚醒內在母親的包容力，療癒「嘴硬心軟、不敢示弱、過度陽剛防備」的關係創傷。",
         ingredients: "洋甘菊、香蜂草、橙花、苦橙葉、五角花、藍鐘花、克羅花、灰蜘蛛、紅素馨、薔薇輝石、紫鋰輝石",
         usage: "適合疊擦於第2脈輪（女性與母親課題）、第4脈輪（胸口愛自己）、第5脈輪（柔和說話）與第6脈輪（提升親和力）。",
-        reaction: "部分人會感到外胸口微痛或心痛浮現，或立即感到被愛包圍而感動落淚。"
+        reaction: "當感到自責、緊張或對自己太嚴苛時，敷在胸口能帶來被溫柔接住的安全感。"
       },
       "情緒修護": {
         category: "修護花晶 · 愛的能量系列",
@@ -1077,7 +1221,7 @@
         summary: "針對長期被切斷壓抑的情緒凍結，幫助安全流動從外層的憤怒到內層的悲傷恐懼，打破「平常壓抑、突然失控爆發」的循環。",
         ingredients: "甜橙、檀香、香桃木、水之畔、山靈花、藍鐘花、粉紅木拉、紅素馨、刷刷花、琥珀、瑪瑙",
         usage: "重點疊擦於第2脈輪（化解暴食與母胎共感情緒）、第3脈輪（情緒消化）與第5脈輪（真實表達情緒）。",
-        reaction: "常透過腸胃蠕動、腹瀉或皮膚微出疹排毒，將累積已久的情緒毒素代謝出體外。"
+        reaction: "協助積壓的情緒溫和流動，讓身體不再需要替你硬扛委屈與怒氣。"
       },
       "兒童心靈": {
         category: "修護花晶 · 愛的能量系列",
@@ -1089,7 +1233,7 @@
         summary: "幫助成年人卸下過度理性的防禦盔甲，重新連結失聯已久的「內在小孩」，找回對生命天真無邪的信任與交託。",
         ingredients: "尤加利、迷迭香、馬鞭草、茴香、小法蘭絨、天使之音、紅盔蘭、芒眼蘇珊、波波花、東菱玉、幻影水晶",
         usage: "全年齡皆適用（孕婦、嬰幼兒、青少年皆宜，成年人更需要）；可疊擦於1、2、4、5脈輪或混合光子寶寶霜擦全身。",
-        reaction: "持續使用後可能浮現被遺忘的童年記憶片段或情緒感受，是內在小孩被看見與療癒的訊號。"
+        reaction: "幫助緊繃的大人放鬆防備，找回輕鬆、好奇與被愛包圍的純粹感。"
       },
       "身體修護": {
         category: "修護花晶 · 身體淨化系列",
@@ -1101,7 +1245,7 @@
         summary: "修護長期透支身心能量的內耗模式，同時能加速修復外在肉體的受傷破口、手術疤痕、撞擊瘀青、扭傷與臟器受損。",
         ingredients: "薰衣草、綠花白千層、佛手柑、茶樹、穗花薄荷、史賓妮、木拉花、山靈花、灰蜘蛛、犬狀玫瑰、白水晶",
         usage: "全身適用；任何瘀青、扭傷、開刀疤痕或過度疲勞部位皆可加強（開放性傷口需先與光子霜混合再塗抹）。",
-        reaction: "陳年舊患可能短暫微痛（排出隱疾），或出現深層疲倦感提醒身體進入真正的休息修復。"
+        reaction: "提醒長期透支的身體進入真正的休息與自我修復。"
       },
       "基因淨化": {
         category: "修護花晶 · 身體淨化系列",
@@ -1113,7 +1257,7 @@
         summary: "針對釋放與原生家庭、血脈祖輩重複的家族創傷與遺傳模式，讓我們不再無意識複製長輩的辛苦命運。",
         ingredients: "沒藥、天竺葵、苦橙葉、穗甘松、山靈花、粉紅木拉、白水晶、亞歷山大石",
         usage: "全脈輪適用，可疊加在與家族相似的身體弱點（如家族共同的婦科、肝膽或皮膚部位）。",
-        reaction: "釋放過程中若出現「吃色（淡綠色殘留皮膚）」代表正在深度代謝祖輩印記，可連續加強塗抹。"
+        reaction: "幫助個體站穩自己的生命藍圖，溫和化解家族傳承的沉重壓力。"
       },
       "純淨極光": {
         category: "修護花晶 · 身體淨化系列",
@@ -1122,10 +1266,10 @@
         liquidHex: "#E2E8F0",
         splashHex: "#F1F5F9",
         colorLabel: "純淨透明白光（空生萬有淨化力）",
-        summary: "擷取特製白水晶極高頻率，看似無色卻涵容七彩光波，能強力洗滌全身沉重印記、藥物殘留與嚴重的皮膚過敏問題。",
+        summary: "擷取特製白水晶極高頻率，看似無色卻涵容七彩光波，能強力洗滌全身沉重印記、雜訊干擾與敏感皮膚困擾。",
         ingredients: "圓當歸、薄荷、乳香、永久花、白蓮花、藍鐘花、五角花、綠蜘蛛蘭、白水晶、舒俱來石",
-        usage: "全脈輪適用，特別推薦給嚴重皮膚困擾、長期服藥或需要深度大掃除者，搭配 Moor 墨泥效果極佳。",
-        reaction: "為身體進行全方位的光波洗滌，幫助中和劇烈好轉反應，讓身心回歸清澈輕盈。"
+        usage: "全脈輪適用，像隱形能量雨衣，適合進入高壓環境前擦頭肩頸胸，或搭配 Moor 墨泥大掃除。",
+        reaction: "幫助清空大腦與身體的雜訊，帶來清澈輕盈的穩定感。"
       },
       "意識轉化": {
         category: "修護花晶 · 意識揚昇系列",
@@ -1137,7 +1281,7 @@
         summary: "如同修護系列的「氣結釋放」，專門打破頭腦狹隘、固執不變的防禦思維，提升宏觀視野，開創人生新格局。",
         ingredients: "羅勒、檀香、薰衣草、香蜂草、雪梨玫瑰、紫水晶、拉長石",
         usage: "適用全身關節處（打破固執信念烙印）以及 1、5、6、7 脈輪。",
-        reaction: "塗抹部位可能感到發熱發燙，上三輪使用時偶有微頭暈或頭痛，代表僵固慣性正在鬆動。"
+        reaction: "塗抹部位可能感到微溫發熱，幫助僵固的思維慣性鬆動轉向。"
       },
       "靈性修護": {
         category: "修護花晶 · 意識揚昇系列",
@@ -1149,7 +1293,7 @@
         summary: "破除小我對靈性的誤解與逃避，幫助我們在日常生活中保持清醒覺知，接收來自內在靈性智慧的平靜指引。",
         ingredients: "丁香、洋甘菊、苦橙葉、紅樹林、紫羅蘭、綠蜘蛛蘭、山楂花、碧璽、祖母綠",
         usage: "疊擦於第5脈輪（臣服）、第6脈輪（洞察真相）與第7脈輪（打開無限未知）。",
-        reaction: "偶有頭痛、頭暈或對生命真相產生深刻洞見與豁然開朗感。"
+        reaction: "幫助我們跳脫情緒漩渦，站在冷靜的觀察者位置看清事情全貌。"
       },
       "恬美夢境": {
         category: "修護花晶 · 意識揚昇系列",
@@ -1158,7 +1302,7 @@
         liquidHex: "#3B82F6",
         splashHex: "#93C5FD",
         colorLabel: "清亮透藍色（神經放鬆與深層睡眠）",
-        summary: "舒緩過度緊繃的思緒與交感神經，化解睡眠背後「小我抓緊物質世界不敢放鬆」的焦慮，帶領大腦進入深層修復睡眠。",
+        summary: "舒緩過度緊繃的思緒與交感神經，化解睡眠背後「抓緊現實不敢放鬆」的焦慮，帶領大腦進入深層修復睡眠。",
         ingredients: "洋甘菊、馬鬱蘭、巨頭花、霰石、鋯石",
         usage: "睡前疊擦於第5脈輪（肩頸）、第6脈輪（全臉調和光子霜與耳後）及第7脈輪（整個頭皮）。",
         reaction: "使用後常感到頭腦自動放空、腦波變慢，進入沉靜安穩的休息狀態。"
@@ -1173,7 +1317,7 @@
         summary: "貫穿並校準第一至第七脈輪的能量中軸，平衡過強或過弱的脈輪光波，讓下三輪行動力與上三輪靈感順暢連通。",
         ingredients: "絲柏、杜松、香蜂草、盲眼蘇珊、吉利百合、紅睡蓮、克羅花、薄荷灌木、波吉石、白水晶",
         usage: "每天塗抹於整條脊椎，或用於所有身體花晶之後、光子霜之前，以七彩光波修補較弱的脈輪。",
-        reaction: "串聯能量中軸時，可能感到身體發熱、微頭暈或整體精神飽滿集中。"
+        reaction: "幫助全身脈輪整合協調，帶來穩定一致的中心力量。"
       },
       "能量場保護": {
         category: "修護花晶 · 擴大氣場系列",
@@ -1185,7 +1329,7 @@
         summary: "增強個人氣場厚度與健康邊界，讓高敏感族群在人群或複雜環境中依然穩固中心力量，不易沾染外界混濁情緒。",
         ingredients: "薰衣草、乳香、沒藥、火百合、鳶尾花、天使之音、紫羅蘭、紫水晶、碧璽",
         usage: "出門前擦腳底湧泉穴與脊椎；可滴 5～10 滴於掌心在身體外圍畫圓，或調成噴霧噴灑空間與口罩外側。",
-        reaction: "協助重建薄弱的能量邊界，讓人感到踏實、有安全感、不易被他人情緒牽動。"
+        reaction: "如同為社交 Wi-Fi 設上密碼，不再輕易被他人的焦慮與負能量牽動。"
       },
       "能量場淨化": {
         category: "修護花晶 · 擴大氣場系列",
@@ -1197,7 +1341,7 @@
         summary: "淨化自身與居住空間的衝突對立能量，清除從外界帶回家的沉重濁氣，讓個人氣場與居家環境保持清新流動。",
         ingredients: "薰衣草、松樹、檸檬草、紫羅蘭、克羅花、波波花、紫水晶、白水晶",
         usage: "可從肩膀往後背灑流經整條脊椎，或滴入噴霧瓶／水氧機淨化房間，亦可噴在口罩內側。",
-        reaction: "對環境氣場麻木無感者使用後，身心會逐步恢復敏銳與清爽感。"
+        reaction: "讓居家與辦公空間恢復清新明亮，身心也跟著清爽起來。"
       },
 
       // --- 光子霜系列 (3款) ---
@@ -1205,7 +1349,7 @@
         category: "核心轉換工具 · 光子霜系列",
         enName: "Shanti Herbal Essence Deluxe",
         visualType: "tube-gold",
-        liquidHex: "#C29B54",
+        liquidHex: "#C89F65",
         splashHex: "#FDE68A",
         colorLabel: "金屬暖金色軟管（生物光子全息波）",
         summary: "澳洲花晶系列最基礎必備的能量工具！內含 40 多種花晶頻率，能鬆動肌肉筋膜凍結，並放大、延長所有身體花晶的功效。",
@@ -1235,7 +1379,7 @@
         summary: "外在能緊緻拉提、亮白肌膚並保養雙眼視力；內在強化第6脈輪智慧洞察力，幫助我們看清真相、不受外在幻象遮蔽。",
         ingredients: "小黃瓜萃取、維他命B5、橄欖葉萃取、大棗果萃取、紫球草萃取、粉晶、月光石",
         usage: "每天早晚在臉部花晶與光子霜厚敷後，將光子眼部精華塗抹全臉並加強眼周按摩，封存所有花晶精華。",
-        reaction: "深度淨化臉部淋巴，持續使用一至兩週即可感受臉部肌膚透亮飽水、眼壓放鬆。"
+        reaction: "深度淨化臉部淋巴，持續使用即可感受臉部肌膚透亮飽水、眼壓放鬆。"
       },
 
       // --- 能量彩油 (6支) ---
@@ -1541,7 +1685,7 @@
         summary: "歷經三萬年冰川融化形成的天然沼澤泥，分子極細能透過皮膚螯合吸附重金屬、藥物殘留與腺體毒素，幫助麻木的身體恢復感知。",
         ingredients: "奧地利原生沼泥、褐藻、藍藻、紅藻、柵藻、綠藻、檸檬草、海茴香、百里香、香蜂草、鼠尾草",
         usage: "每週 1～2 次或天天取代沐浴乳。全身淋濕後塗滿至看不見膚色，輕柔搓洗 3～5 分鐘（或直接泡浴 15 分鐘）。用後一周內勿用化學沐浴乳。",
-        reaction: "可能出現皮膚微出疹癢、排汗增多、口苦或情緒釋放；若某處洗不掉代表該處毒素淤塞較深，留著自然吸收即可。"
+        reaction: "可能出現皮膚微出疹癢、排汗增多或情緒釋放；若某處洗不掉代表該處毒素淤塞較深，留著自然吸收即可。"
       },
       "光子玫瑰純淨露（純天然洗頭、洗臉、沐浴露）": {
         category: "深層排毒淨化輔助 · 純天然洗沐",
@@ -1659,11 +1803,9 @@
     let activeProductIdx = 0;
     let selectedProductItem = '1號花晶';
 
-    // 依據產品外觀類型產生精緻客製 SVG 瓶身/包裝插畫
     function generateProductSVG(detail, productName) {
       const { visualType, liquidHex, splashHex } = detail;
 
-      // 1. 身體花晶 30ml 玻璃方瓶 (Color Energy + 神聖幾何曼陀羅)
       if (visualType === 'bottle-color') {
         const isClear = liquidHex === '#E2E8F0';
         return `
@@ -1703,12 +1845,11 @@
         `;
       }
 
-      // 2. 光子霜系列 (軟管包裝)
       if (visualType === 'tube-gold' || visualType === 'tube-baby' || visualType === 'tube-eye') {
         const isSlim = visualType === 'tube-eye';
         const isBaby = visualType === 'tube-baby';
-        const bodyColor = isBaby ? '#93C5FD' : '#C29B54';
-        const capColor = isBaby ? '#60A5FA' : '#A67F3C';
+        const bodyColor = isBaby ? '#93C5FD' : '#C89F65';
+        const capColor = isBaby ? '#60A5FA' : '#A88047';
         const wTop = isSlim ? 46 : 78;
         const wBot = isSlim ? 32 : 52;
         return `
@@ -1733,7 +1874,6 @@
         `;
       }
 
-      // 3. 能量彩油 (五瓣花幾何玻璃瓶)
       if (visualType === 'oil-bottle') {
         return `
           <svg viewBox="0 0 240 260" class="w-44 h-48 sm:w-52 sm:h-56 mx-auto drop-shadow-md" aria-label="${productName}彩油瓶身插畫">
@@ -1756,7 +1896,6 @@
         `;
       }
 
-      // 4. 口服花晶 (琥珀色滴管玻璃瓶)
       if (visualType === 'dropper') {
         return `
           <svg viewBox="0 0 240 260" class="w-44 h-48 sm:w-52 sm:h-56 mx-auto drop-shadow-md" aria-label="${productName}口服滴管瓶插畫">
@@ -1775,7 +1914,6 @@
         `;
       }
 
-      // 5. 排毒淨化輔助 (墨泥罐 / 玫瑰純淨露按壓瓶 / 蓋婭能量陶板)
       if (visualType === 'jar-moor') {
         return `
           <svg viewBox="0 0 240 260" class="w-44 h-48 sm:w-52 sm:h-56 mx-auto drop-shadow-md" aria-label="Moor墨泥插畫">
@@ -1806,11 +1944,10 @@
         `;
       }
 
-      // 蓋婭能量陶板
       return `
         <svg viewBox="0 0 240 260" class="w-44 h-48 sm:w-52 sm:h-56 mx-auto drop-shadow-md" aria-label="蓋婭能量陶板插畫">
           <circle cx="120" cy="135" r="78" fill="#D6D3D1" opacity="0.35" />
-          <polygon points="120,42 195,88 195,182 120,228 45,182 45,88" stroke="#C29B54" stroke-width="1" fill="none" opacity="0.6" />
+          <polygon points="120,42 195,88 195,182 120,228 45,182 45,88" stroke="#C89F65" stroke-width="1" fill="none" opacity="0.6" />
           <ellipse cx="144" cy="136" rx="34" ry="62" fill="#57534E" stroke="#292524" stroke-width="1.2" />
           <g fill="#292524" opacity="0.7">
             <circle cx="136" cy="105" r="4" /><circle cx="152" cy="105" r="4" />
@@ -1848,7 +1985,6 @@
       viewer.innerHTML = `
         <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-gold-400/50 shadow-md transition-all">
           <div class="grid lg:grid-cols-12 gap-6 sm:gap-8 items-center">
-            <!-- 左側：產品瓶身與色彩視覺圖示 -->
             <div class="lg:col-span-4 bg-cream-50 rounded-2xl p-5 border border-cream-200 flex flex-col items-center text-center">
               <span class="text-xs font-bold px-3 py-1 rounded-full bg-white border border-cream-200 text-earth-700 mb-2">
                 瓶身與能量色彩示意
@@ -1860,7 +1996,6 @@
               </div>
             </div>
 
-            <!-- 右側：白話詳盡文字說明 -->
             <div class="lg:col-span-8 space-y-4">
               <div class="border-b border-cream-200 pb-4">
                 <div class="text-xs font-bold text-gold-600 mb-1">${detail.category}</div>
@@ -1889,7 +2024,7 @@
               </div>
 
               <div class="bg-sage-100/70 rounded-2xl p-3.5 border border-sage-500/20 text-xs sm:text-sm text-earth-700">
-                <strong class="text-sage-700">💡 覺察與小提醒：</strong>${detail.reaction}
+                <strong class="text-sage-700">💡 體感與小提醒：</strong>${detail.reaction}
               </div>
             </div>
           </div>
@@ -1933,7 +2068,7 @@
                 ${g.items.map(item => {
                   const isSelected = item === selectedProductItem;
                   const info = productDetailsDB[item];
-                  const dotColor = info ? info.liquidHex : '#C29B54';
+                  const dotColor = info ? info.liquidHex : '#C89F65';
                   return `
                     <button type="button" onclick="selectProductItem('${item}')"
                       class="px-3.5 py-2 rounded-xl border text-sm font-medium transition flex items-center gap-2 ${isSelected ? 'bg-earth-800 text-cream-50 border-earth-800 shadow-sm scale-[1.02]' : 'bg-cream-50 border-cream-200 text-earth-800 hover:bg-cream-100 hover:border-gold-400'}">
@@ -1958,13 +2093,219 @@
       renderProductDetailViewer(firstItem);
     }
 
-    // 初始化頁面
+    // ==========================================
+    // 5. 新手 3 分鐘頻率校準體驗儀邏輯
+    // ==========================================
+    const bodyZones = [
+      {
+        id: 'head',
+        label: '頭部緊脹',
+        icon: '🧠',
+        type: '思緒過度運轉（風型緊繃）',
+        rec: '6 號花晶（調和光子霜擦全臉）或 純淨極光（敷耳前耳後與頭頂）',
+        tip: '幫大腦執行長降速，清空過度思考的雜訊。'
+      },
+      {
+        id: 'neck',
+        label: '肩頸僵硬',
+        icon: '🪨',
+        type: '扛起過多責任（火型防禦）',
+        rec: '5 號花晶 ＋ 氣結釋放（單支疊擦於肩膀與脖子整圈）',
+        tip: '卸下不屬於自己的責任重擔，鬆開防備鎧甲。'
+      },
+      {
+        id: 'chest',
+        label: '胸口悶痛',
+        icon: '💗',
+        type: '委屈或自我批判（心輪收縮）',
+        rec: '4 號花晶 ＋ 心靈修護（敷於胸口與腋下）',
+        tip: '為心輪打開呼吸空間，給予自己溫柔的接納。'
+      },
+      {
+        id: 'stomach',
+        label: '胃部翻攪',
+        icon: '🔥',
+        type: '壓力消化不良（太陽神經叢緊縮）',
+        rec: '3 號花晶 ＋ 財運之星（敷於上腹部胃區）',
+        tip: '安撫緊繃的胃部神經，找回從容穩定的中心感。'
+      },
+      {
+        id: 'belly',
+        label: '下腹冰冷',
+        icon: '🌊',
+        type: '安全感與情緒凍結（下腹卡住）',
+        rec: '2 號花晶 ＋ 情緒修護（環擦下腹到後腰）',
+        tip: '溫暖下腹部核心，讓凍結的情緒重新流動。'
+      },
+      {
+        id: 'legs',
+        label: '雙腿沉重',
+        icon: '🦶',
+        type: '能量耗盡想躺平（土型淤塞）',
+        rec: '1 號花晶（敷於腳底、腳踝與膝蓋整圈）',
+        tip: '重新接通大地支持力，幫身體穩固充電。'
+      }
+    ];
+
+    let activeZoneId = 'neck';
+
+    function selectBodyZone(zoneId) {
+      activeZoneId = zoneId;
+      const btnContainer = document.getElementById('cal-part-buttons');
+      btnContainer.innerHTML = bodyZones.map(z => {
+        const isActive = z.id === zoneId;
+        return `
+          <button type="button" onclick="selectBodyZone('${z.id}')"
+            class="p-3 rounded-2xl border text-center transition flex flex-col items-center gap-1 ${isActive ? 'bg-earth-800 text-cream-50 border-earth-800 shadow-sm' : 'bg-cream-50 text-earth-800 border-cream-200 hover:bg-cream-100'}">
+            <span class="text-xl">${z.icon}</span>
+            <span class="text-xs sm:text-sm font-bold">${z.label}</span>
+          </button>
+        `;
+      }).join('');
+
+      const zone = bodyZones.find(z => z.id === zoneId);
+      const recBox = document.getElementById('cal-part-recommendation');
+      recBox.innerHTML = `
+        <div>
+          <div class="text-xs font-bold text-gold-600 mb-0.5">系統判讀：${zone.type}</div>
+          <div class="text-sm sm:text-base font-bold text-earth-900">推薦花晶：${zone.rec}</div>
+        </div>
+        <div class="text-xs text-earth-600 bg-white px-3.5 py-2 rounded-xl border border-cream-200">
+          💡 ${zone.tip}
+        </div>
+      `;
+    }
+
+    function updateScoreDisplay() {
+      const pre = document.getElementById('pre-score-slider').value;
+      const post = document.getElementById('post-score-slider').value;
+      document.getElementById('pre-score-val').textContent = pre;
+      document.getElementById('post-score-val').textContent = post;
+    }
+
+    // 30 秒長吐氣引導計時器（吸氣 3 秒 -> 慢吐 6 秒循環）
+    let breathInterval = null;
+    let breathSecondsLeft = 0;
+
+    function toggleBreathTimer() {
+      const btn = document.getElementById('breath-btn');
+      const circle = document.getElementById('breath-circle');
+      const inst = document.getElementById('breath-instruction');
+      const timerText = document.getElementById('breath-timer-text');
+
+      if (breathInterval) {
+        clearInterval(breathInterval);
+        breathInterval = null;
+        btn.textContent = '▶ 開始 30 秒呼吸';
+        circle.style.transform = 'scale(1)';
+        circle.textContent = '準備';
+        inst.textContent = '已暫停，隨時可重新開始';
+        timerText.textContent = '吸氣 3 秒 · 嘴巴慢慢吹氣 6 秒';
+        return;
+      }
+
+      breathSecondsLeft = 30;
+      btn.textContent = '⏹ 停止計時';
+
+      const updateBreathStep = () => {
+        if (breathSecondsLeft <= 0) {
+          clearInterval(breathInterval);
+          breathInterval = null;
+          btn.textContent = '▶ 再做一次 30 秒';
+          circle.style.transform = 'scale(1)';
+          circle.textContent = '完成';
+          inst.textContent = '✨ 30 秒呼吸完成！請進行步驟 4 後測';
+          timerText.textContent = '感覺一下剛才緊繃的部位有沒有鬆一點？';
+          return;
+        }
+
+        const elapsed = 30 - breathSecondsLeft;
+        const cyclePos = elapsed % 9; // 0,1,2 为吸气(3秒); 3,4,5,6,7,8 为慢吐(6秒)
+
+        if (cyclePos < 3) {
+          circle.style.transform = 'scale(1.32)';
+          circle.style.backgroundColor = 'rgba(200, 159, 101, 0.3)';
+          circle.textContent = '吸氣';
+          inst.textContent = `鼻子慢慢吸氣... (${3 - cyclePos}秒)`;
+        } else {
+          circle.style.transform = 'scale(0.92)';
+          circle.style.backgroundColor = 'rgba(107, 130, 113, 0.25)';
+          circle.textContent = '慢吐';
+          inst.textContent = `嘴巴像吹蠟燭般長吐氣... (${9 - cyclePos}秒)`;
+        }
+
+        timerText.textContent = `剩餘 ${breathSecondsLeft} 秒 · 吐氣比吸氣長兩倍`;
+        breathSecondsLeft--;
+      };
+
+      updateBreathStep();
+      breathInterval = setInterval(updateBreathStep, 1000);
+    }
+
+    function showCalibrationResult() {
+      const pre = parseInt(document.getElementById('pre-score-slider').value, 10);
+      const post = parseInt(document.getElementById('post-score-slider').value, 10);
+      const diff = pre - post;
+      const zone = bodyZones.find(z => z.id === activeZoneId);
+      const box = document.getElementById('calibration-result-box');
+
+      box.classList.remove('hidden');
+
+      if (diff > 0) {
+        box.className = 'mt-5 rounded-2xl p-5 sm:p-6 bg-sage-100/80 border border-sage-500/30';
+        box.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div class="text-xs font-bold text-sage-700 mb-1">🎉 校準成功！物理緊繃指數下降了 ${diff} 分</div>
+              <h4 class="font-serif text-lg sm:text-xl font-bold text-earth-900 mb-1.5">
+                你的「${zone.label}」從 ${pre} 分降到了 ${post} 分！
+              </h4>
+              <p class="text-xs sm:text-sm text-earth-700 leading-relaxed">
+                哪怕只是下降 1～2 分，都代表你的神經系統已經成功從「緊繃防禦」切換到「安全修復」頻道了。大腦剛剛記錄了一筆新證據：<strong>「我有能力在 3 分鐘內安頓好自己。」</strong>
+              </p>
+            </div>
+            <div class="shrink-0 bg-white px-5 py-3 rounded-2xl border border-sage-500/20 text-center">
+              <div class="text-xs text-earth-600">緊繃張力變化</div>
+              <div class="text-2xl font-serif font-bold text-sage-700 mt-0.5">${pre} → ${post}</div>
+            </div>
+          </div>
+        `;
+      } else if (diff === 0) {
+        box.className = 'mt-5 rounded-2xl p-5 sm:p-6 bg-cream-100/90 border border-cream-300';
+        box.innerHTML = `
+          <div class="text-xs font-bold text-gold-600 mb-1">🧭 覺察紀錄：分數維持在 ${post} 分</div>
+          <h4 class="font-serif text-lg font-bold text-earth-900 mb-1.5">
+            沒有立刻下降完全正常，你已經完成了最重要的一步：「看見它」
+          </h4>
+          <p class="text-xs sm:text-sm text-earth-700 leading-relaxed">
+            如果這處緊繃已經累積了很久，身體需要一點「預熱時間」來卸下防備。你可以再多補一次<strong>${zone.rec}</strong>，或改擦「1號紅色花晶」在腳底，對自己說：「不急著馬上變好，我願意陪身體慢慢來。」
+          </p>
+        `;
+      } else {
+        box.className = 'mt-5 rounded-2xl p-5 sm:p-6 bg-amber-50 border border-amber-300';
+        box.innerHTML = `
+          <div class="text-xs font-bold text-amber-800 mb-1">🧊 破冰訊號：感受從 ${pre} 分提升到 ${post} 分</div>
+          <h4 class="font-serif text-lg font-bold text-earth-900 mb-1.5">
+            恭喜你，原本麻木凍結的感受正在「解凍浮現」！
+          </h4>
+          <p class="text-xs sm:text-sm text-earth-700 leading-relaxed">
+            就像久坐腳麻剛開始恢復血液循環時會覺得特別酸麻一樣，分數短暫上升代表身體不再「關機裝死」，而是把壓抑已久的緊繃感釋放出來。請參考上方「自救小卡」，雙腳踩穩地板、擦一點<strong>1號紅色花晶在腳底</strong>並多喝溫水即可。
+          </p>
+        `;
+      }
+    }
+
+    // ==========================================
+    // 頁面初始化
+    // ==========================================
     window.addEventListener('DOMContentLoaded', () => {
       selectHealingStep(0);
       selectChakra(1);
       renderChakraTable();
       renderScenarios();
       selectProductFamily(0);
+      selectBodyZone('neck');
+      updateScoreDisplay();
     });
   </script>
 </body>
